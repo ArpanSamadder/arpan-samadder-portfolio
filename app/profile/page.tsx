@@ -10,10 +10,9 @@ const navItems = [
 const profileStyles = `
 .profile-page {
   --blue: #187dff;
-  --panel: rgba(3, 16, 38, 0.76);
-  --line: rgba(24, 125, 255, 0.22);
   --text: #f8fbff;
   --muted: rgba(232, 244, 255, 0.72);
+  --line: rgba(24, 125, 255, 0.22);
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -28,9 +27,9 @@ const profileStyles = `
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 78% 13%, rgba(24, 125, 255, 0.12), transparent 28%),
-    radial-gradient(circle at 13% 30%, rgba(24, 125, 255, 0.06), transparent 25%),
-    linear-gradient(135deg, #020712 0%, #031023 52%, #041b3a 78%, #020712 100%);
+    radial-gradient(circle at 78% 14%, rgba(24, 125, 255, 0.13), transparent 30%),
+    radial-gradient(circle at 8% 28%, rgba(24, 125, 255, 0.08), transparent 24%),
+    linear-gradient(135deg, #020712 0%, #031023 54%, #041b3a 82%, #020712 100%);
 }
 
 .profile-wrap {
@@ -40,142 +39,133 @@ const profileStyles = `
   margin: 0 auto;
 }
 
-.profile-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
-  gap: 30px;
-  align-items: stretch;
-  padding-top: 42px;
-}
-
-.profile-hero-card,
-.profile-photo-card,
-.profile-panel,
-.profile-cta {
+.profile-showcase {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(380px, 1.12fr);
+  gap: 32px;
+  align-items: center;
+  min-height: 560px;
+  padding-top: 28px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: rgba(3, 16, 38, 0.70);
-  box-shadow: none;
 }
 
-.profile-hero-card {
-  padding: 42px 44px;
-  min-height: 430px;
+.profile-showcase::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0 -8vw 0 auto;
+  width: min(58vw, 760px);
+  opacity: 0.38;
+  background-image: radial-gradient(rgba(24, 125, 255, 0.62) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at 62% 44%, #000 0%, transparent 70%);
+}
+
+.profile-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 570px;
 }
 
 .profile-kicker {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   color: var(--blue);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.profile-title {
-  max-width: 760px;
+.profile-showcase-title {
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(48px, 5vw, 70px);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
-  font-weight: 800;
+  color: rgba(248, 251, 255, 0.90);
+  font-size: clamp(44px, 5vw, 66px);
+  line-height: 1.08;
+  letter-spacing: -0.052em;
+  font-weight: 780;
 }
 
-.profile-title span {
+.profile-showcase-title span {
   color: var(--blue);
 }
 
-.profile-lead {
-  max-width: 650px;
+.profile-showcase-lead {
+  max-width: 560px;
   margin: 24px 0 0;
-  color: rgba(248, 251, 255, 0.84);
-  font-size: 16px;
-  line-height: 1.76;
-}
-
-.profile-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 30px;
-}
-
-.profile-actions .primary-action,
-.profile-actions .secondary-action,
-.profile-cta .primary-action,
-.profile-cta .secondary-action {
-  min-width: 166px;
-  min-height: 46px;
-}
-
-.profile-photo-card {
-  display: flex;
-  min-height: 430px;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 18px;
-}
-
-.profile-photo-frame {
-  position: relative;
-  min-height: 292px;
-  overflow: hidden;
-  border: 1px solid rgba(24, 125, 255, 0.26);
-  border-radius: 20px;
-  background: radial-gradient(circle at 50% 20%, rgba(24, 125, 255, 0.20), transparent 45%), rgba(2, 7, 18, 0.72);
-}
-
-.profile-photo-frame img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 22%;
-}
-
-.profile-photo-caption {
-  padding: 18px 4px 4px;
-}
-
-.profile-photo-caption h2 {
-  margin: 0;
-  color: #ffffff;
-  font-size: 24px;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  font-weight: 800;
-}
-
-.profile-photo-caption p {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.profile-badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 16px;
-}
-
-.profile-badge-row span {
-  border: 1px solid rgba(24, 125, 255, 0.22);
-  border-radius: 999px;
-  padding: 7px 10px;
   color: rgba(248, 251, 255, 0.82);
-  background: rgba(24, 125, 255, 0.08);
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.profile-hero-note {
+  max-width: 550px;
+  margin: 24px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--blue);
+  color: rgba(248, 251, 255, 0.78);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.profile-visual {
+  position: relative;
+  min-height: 540px;
+  align-self: stretch;
+}
+
+.profile-visual::before,
+.profile-visual::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  border: 2px solid rgba(24, 125, 255, 0.74);
+  border-radius: 50%;
+  box-shadow: 0 0 26px rgba(24, 125, 255, 0.26);
+  transform: rotate(-18deg);
+}
+
+.profile-visual::before {
+  width: min(46vw, 570px);
+  height: min(18vw, 230px);
+  right: -2%;
+  top: 30%;
+}
+
+.profile-visual::after {
+  width: min(34vw, 430px);
+  height: min(12vw, 150px);
+  right: 8%;
+  top: 47%;
+  opacity: 0.42;
+}
+
+.profile-portrait-glow {
+  pointer-events: none;
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: min(52vw, 620px);
+  height: 84%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, rgba(24, 125, 255, 0.22), transparent 62%);
+  filter: blur(2px);
+}
+
+.profile-portrait-img {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  width: min(50vw, 610px);
+  height: 100%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 28px 38px rgba(0, 0, 0, 0.34));
 }
 
 .profile-section {
-  margin-top: 26px;
+  margin-top: 34px;
 }
 
 .profile-section-head {
@@ -202,6 +192,17 @@ const profileStyles = `
   font-size: 14px;
   line-height: 1.7;
   text-align: right;
+}
+
+.profile-panel,
+.profile-focus-card,
+.profile-cta {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(3, 16, 38, 0.70);
+  box-shadow: none;
 }
 
 .profile-panel {
@@ -240,15 +241,18 @@ const profileStyles = `
   background: rgba(2, 7, 18, 0.38);
 }
 
-.profile-mini-card h3 {
+.profile-mini-card h3,
+.profile-list-item h3,
+.profile-focus-card h3 {
   margin: 0;
   color: #ffffff;
-  font-size: 16px;
   letter-spacing: -0.03em;
   font-weight: 800;
 }
 
-.profile-mini-card p {
+.profile-mini-card p,
+.profile-list-item p,
+.profile-focus-card p {
   margin: 8px 0 0;
   color: var(--muted);
   font-size: 13px;
@@ -263,10 +267,7 @@ const profileStyles = `
 
 .profile-focus-card {
   min-height: 220px;
-  border: 1px solid rgba(24, 125, 255, 0.20);
-  border-radius: 22px;
   padding: 22px;
-  background: rgba(3, 16, 38, 0.70);
 }
 
 .profile-focus-card .count {
@@ -276,17 +277,14 @@ const profileStyles = `
 }
 
 .profile-focus-card h3 {
-  margin: 48px 0 0;
-  color: #ffffff;
+  margin-top: 48px;
   font-size: 20px;
   line-height: 1.18;
   letter-spacing: -0.045em;
-  font-weight: 800;
 }
 
 .profile-focus-card p {
-  margin: 14px 0 0;
-  color: var(--muted);
+  margin-top: 14px;
   font-size: 14px;
   line-height: 1.65;
 }
@@ -311,18 +309,7 @@ const profileStyles = `
 }
 
 .profile-list-item h3 {
-  margin: 0;
-  color: #ffffff;
   font-size: 16px;
-  letter-spacing: -0.03em;
-  font-weight: 800;
-}
-
-.profile-list-item p {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.6;
 }
 
 .profile-skill-cloud {
@@ -372,17 +359,63 @@ const profileStyles = `
   gap: 14px;
 }
 
+.profile-cta .primary-action,
+.profile-cta .secondary-action {
+  min-width: 166px;
+  min-height: 46px;
+}
+
 @media (max-width: 980px) {
   .profile-wrap {
     width: min(100% - 34px, 720px);
   }
 
-  .profile-hero,
+  .profile-showcase,
   .profile-story-grid,
   .profile-card-grid,
   .profile-split,
   .profile-cta {
     grid-template-columns: 1fr;
+  }
+
+  .profile-showcase {
+    min-height: auto;
+    gap: 12px;
+    padding-top: 28px;
+  }
+
+  .profile-showcase-title {
+    font-size: 38px;
+    letter-spacing: -0.055em;
+  }
+
+  .profile-showcase-lead,
+  .profile-hero-note {
+    font-size: 14px;
+  }
+
+  .profile-visual {
+    min-height: 390px;
+    order: -1;
+  }
+
+  .profile-portrait-img {
+    width: 100%;
+    right: 0;
+  }
+
+  .profile-visual::before {
+    width: 104%;
+    height: 180px;
+    right: -4%;
+    top: 36%;
+  }
+
+  .profile-visual::after {
+    width: 78%;
+    height: 120px;
+    right: 8%;
+    top: 52%;
   }
 
   .profile-section-head {
@@ -392,27 +425,6 @@ const profileStyles = `
   .profile-section-head p {
     margin-top: 10px;
     text-align: left;
-  }
-
-  .profile-hero-card {
-    min-height: auto;
-    padding: 30px 22px;
-  }
-
-  .profile-title {
-    font-size: 42px;
-  }
-
-  .profile-lead {
-    font-size: 14px;
-  }
-
-  .profile-photo-card {
-    min-height: auto;
-  }
-
-  .profile-photo-frame {
-    min-height: 315px;
   }
 
   .profile-panel {
@@ -432,14 +444,11 @@ const profileStyles = `
     padding: 24px 20px;
   }
 
-  .profile-cta-actions,
-  .profile-actions {
+  .profile-cta-actions {
     width: 100%;
     flex-direction: column;
   }
 
-  .profile-actions .primary-action,
-  .profile-actions .secondary-action,
   .profile-cta .primary-action,
   .profile-cta .secondary-action {
     width: 100%;
@@ -475,15 +484,15 @@ const education = [
 
 const workingStyle = [
   {
-    title: "Execution-first mindset",
+    title: "Execution-First Mindset",
     body: "I focus on planning clearly, moving fast, coordinating people, and finishing work with discipline.",
   },
   {
-    title: "Works well under pressure",
+    title: "Works Well Under Pressure",
     body: "I have handled sponsor pressure, event deadlines, client feedback, and multi-team coordination together.",
   },
   {
-    title: "Learning-driven growth",
+    title: "Learning-Driven Growth",
     body: "I am building long-term capability across marketing, communication, AI tools, and business operations.",
   },
 ];
@@ -541,40 +550,24 @@ export default function ProfilePage() {
       </header>
 
       <div className="profile-wrap">
-        <section className="profile-hero" aria-labelledby="profile-title">
-          <div className="profile-hero-card">
+        <section className="profile-showcase" aria-labelledby="profile-title">
+          <div className="profile-copy">
             <p className="profile-kicker">Profile</p>
-            <h1 id="profile-title" className="profile-title">
-              Business student with a <span>brand execution</span> mindset.
+            <h1 id="profile-title" className="profile-showcase-title">
+              A Business Communicator With An Execution-First <span>Mindset.</span>
             </h1>
-            <p className="profile-lead">
-              I am Arpan Samadder, a BBA student at Jahangirnagar University focused on brand communication, campus leadership, marketing execution, and AI-assisted productivity. I enjoy turning unclear ideas into organized campaigns, events, systems, and practical student-led initiatives.
+            <p className="profile-showcase-lead">
+              I am building my career around marketing, brand communication, campus activation, sponsorship outreach, business competitions, and AI-assisted execution.
             </p>
-            <div className="profile-actions">
-              <Link href="/files/arpan-samadder-cv.pdf" className="primary-action">
-                Download CV <span aria-hidden="true">↓</span>
-              </Link>
-              <Link href="/experience" className="secondary-action">
-                View Experience <span aria-hidden="true">→</span>
-              </Link>
-            </div>
+            <p className="profile-hero-note">
+              My focus is simple: understand the problem, build the strategy, organize the team, create the materials, and execute with discipline.
+            </p>
           </div>
 
-          <aside className="profile-photo-card" aria-label="Profile summary card">
-            <div className="profile-photo-frame">
-              <img src="/images/arpan-profile-photo.jpeg" alt="Arpan Samadder" />
-            </div>
-            <div className="profile-photo-caption">
-              <h2>Arpan Samadder</h2>
-              <p>BBA Student, Brand Communicator, Campus Leader, and AI-assisted execution enthusiast.</p>
-              <div className="profile-badge-row" aria-label="Profile focus tags">
-                <span>Marketing</span>
-                <span>Branding</span>
-                <span>Leadership</span>
-                <span>AI Tools</span>
-              </div>
-            </div>
-          </aside>
+          <div className="profile-visual" aria-label="Arpan Samadder portrait">
+            <div className="profile-portrait-glow" aria-hidden="true" />
+            <img src="/images/arpan-profile-photo.jpeg" alt="Arpan Samadder" className="profile-portrait-img" />
+          </div>
         </section>
 
         <section className="profile-section" aria-labelledby="story-title">
@@ -593,15 +586,15 @@ export default function ProfilePage() {
             </div>
             <div className="profile-mini-grid">
               <article className="profile-mini-card">
-                <h3>Current direction</h3>
+                <h3>Current Direction</h3>
                 <p>Marketing, brand management, corporate communication, and AI-assisted business operations.</p>
               </article>
               <article className="profile-mini-card">
-                <h3>Career priority</h3>
+                <h3>Career Priority</h3>
                 <p>Build a strong professional profile before graduation and prepare for future MTO and MBA goals.</p>
               </article>
               <article className="profile-mini-card">
-                <h3>Core advantage</h3>
+                <h3>Core Advantage</h3>
                 <p>Execution across multiple responsibilities without losing structure, quality, or communication discipline.</p>
               </article>
             </div>
