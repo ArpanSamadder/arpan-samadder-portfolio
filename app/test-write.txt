@@ -1,1 +1,1 @@
-.x:before{font-size:37px}
+#x:before{font-size:37px}
