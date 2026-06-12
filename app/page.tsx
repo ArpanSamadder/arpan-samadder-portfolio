@@ -16,6 +16,12 @@ const heroOnlyPolish = `
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
+.mobile-menu-toggle,
+.mobile-menu-button,
+.mobile-menu-panel {
+  display: none;
+}
+
 @media (min-width: 1061px) {
   .site-header {
     height: 74px;
@@ -317,6 +323,110 @@ const heroOnlyPolish = `
     margin-top: 22px;
   }
 }
+
+@media (max-width: 720px) {
+  .site-header {
+    height: auto !important;
+    min-height: 70px !important;
+    border-bottom: 0 !important;
+    background: rgba(2, 7, 18, 0.98) !important;
+  }
+
+  .site-nav {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 70px !important;
+    padding: 0 20px !important;
+  }
+
+  .site-nav::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .site-nav > .nav-pill,
+  .site-nav > .hire-button {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-menu-toggle:checked + .mobile-menu-button {
+    color: #187dff;
+  }
+
+  .mobile-menu-panel {
+    grid-column: 1 / -1;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    padding: 10px 20px 18px;
+    border-top: 1px solid rgba(24, 125, 255, 0.18);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.18);
+    background: #020712;
+  }
+
+  .mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    display: flex;
+  }
+
+  .mobile-menu-link,
+  .mobile-menu-hire {
+    display: flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    color: rgba(248, 251, 255, 0.82);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .mobile-menu-link.active {
+    color: #187dff;
+  }
+
+  .mobile-menu-hire {
+    justify-content: center;
+    margin-top: 8px;
+    border-radius: 7px;
+    color: #ffffff;
+    background: #187dff;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+  }
+}
 `;
 
 const highlights = [
@@ -437,6 +547,19 @@ export default function Home() {
           <Link href="/hire-me" className="hire-button">
             Hire Me <span aria-hidden="true">→</span>
           </Link>
+
+          <input type="checkbox" id="mobile-menu-toggle" className="mobile-menu-toggle" aria-label="Toggle mobile navigation" />
+          <label htmlFor="mobile-menu-toggle" className="mobile-menu-button" aria-hidden="true">☰</label>
+          <div className="mobile-menu-panel" aria-label="Mobile navigation links">
+            {navItems.map((item) => (
+              <Link key={`mobile-${item.href}`} href={item.href} className={`mobile-menu-link ${item.href === "/" ? "active" : ""}`}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/hire-me" className="mobile-menu-hire">
+              Hire Me <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </nav>
       </header>
 
