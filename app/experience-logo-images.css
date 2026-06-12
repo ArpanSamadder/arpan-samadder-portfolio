@@ -1,0 +1,63 @@
+/* Use uploaded PNG logos for the home Experience preview cards */
+.home-page .experience-card {
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms ease,
+    background 260ms ease,
+    box-shadow 260ms ease !important;
+}
+
+.home-page .experience-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(24, 125, 255, 0.42) !important;
+  background: rgba(3, 14, 35, 0.78) !important;
+  box-shadow: inset 0 0 22px rgba(24, 125, 255, 0.055) !important;
+}
+
+.home-page .experience-top {
+  grid-template-columns: 62px minmax(0, 1fr) !important;
+  gap: 16px !important;
+}
+
+.home-page .experience-badge {
+  width: 58px !important;
+  height: 58px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  overflow: hidden !important;
+}
+
+.home-page .experience-card:nth-child(1) .experience-badge {
+  background-image: url("/images/executive-media.png") !important;
+}
+
+.home-page .experience-card:nth-child(2) .experience-badge {
+  background-image: url("/images/biztigation.png") !important;
+}
+
+.home-page .experience-card:nth-child(3) .experience-badge {
+  background-image: url("/images/jucc.png") !important;
+}
+
+.home-page .experience-card:nth-child(4) .experience-badge {
+  background-image: url("/images/mofa.png") !important;
+}
+
+@media (max-width: 720px) {
+  .home-page .experience-top {
+    grid-template-columns: 50px minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .home-page .experience-badge {
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
