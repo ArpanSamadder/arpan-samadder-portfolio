@@ -9,22 +9,22 @@ const navItems = [
 
 const highlights = [
   {
-    icon: "megaphone",
+    icon: "01",
     title: "Brand Communication",
     detail: "Campaign planning, client coordination, content direction, and creative execution.",
   },
   {
-    icon: "people",
+    icon: "02",
     title: "Campus Activation",
     detail: "Student outreach, ambassador coordination, event promotion, and community engagement.",
   },
   {
-    icon: "handshake",
+    icon: "03",
     title: "Sponsorship & Outreach",
     detail: "Proposal preparation, company research, partnership communication, and follow-up systems.",
   },
   {
-    icon: "spark",
+    icon: "04",
     title: "AI-Assisted Execution",
     detail: "Using AI tools to speed up content planning, research, scripts, and workflow organization.",
   },
@@ -63,28 +63,24 @@ const experiences = [
 
 const projects = [
   {
+    title: "Biztigation",
+    subtitle: "National Business Case Competition",
+    detail: "A student-led initiative promoting business awareness, networking, and practical learning.",
+  },
+  {
     title: "Biztigation 2.0",
     subtitle: "CRM-Style Outreach System",
     detail: "A CRM-style platform to streamline outreach, track partnerships, and manage collaboration efficiently.",
-    visual: "dashboard",
   },
   {
     title: "Prottoy AI",
     subtitle: "AI Business Assistant",
     detail: "An AI-powered assistant designed to support students with smart tools, insights, and productivity.",
-    visual: "network",
-  },
-  {
-    title: "Biztigation",
-    subtitle: "National Business Case Competition",
-    detail: "A student-led initiative promoting business awareness, networking, and practical learning.",
-    visual: "growth",
   },
   {
     title: "Sense of Return 2.0",
     subtitle: "Finance Fest Magazine",
     detail: "A campus initiative fostering community connection and meaningful engagement.",
-    visual: "stage",
   },
 ];
 
@@ -107,46 +103,6 @@ const skills = [
   "Leadership",
   "Public Speaking",
 ];
-
-function IconMark({ type }: { type: string }) {
-  const common = "h-7 w-7";
-
-  if (type === "megaphone") {
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path d="M4 13.5V10l11-4v12L4 13.5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-        <path d="M8 14v3.3c0 .8.6 1.4 1.4 1.4h1.1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-        <path d="M18 9.2c1 .7 1.5 1.6 1.5 2.8S19 14.1 18 14.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (type === "people") {
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path d="M9 11a3.2 3.2 0 1 0 0-6.4A3.2 3.2 0 0 0 9 11Zm6.8.6a2.7 2.7 0 1 0 0-5.4 2.7 2.7 0 0 0 0 5.4Z" stroke="currentColor" strokeWidth="1.7" />
-        <path d="M3.8 19.5c.7-3.4 2.7-5.2 5.2-5.2s4.5 1.8 5.2 5.2M13.8 15c2.8.2 4.7 1.7 5.5 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (type === "handshake") {
-    return (
-      <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-        <path d="m7.3 12.2 3.2-3.1c1-.9 2.2-.9 3.2 0l3 2.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-        <path d="m3.5 11.3 3.3-3.2 3.1 3.1-3.3 3.2-3.1-3.1Zm13.7-3.2 3.3 3.2-3.1 3.1-3.3-3.2 3.1-3.1Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-        <path d="m8.7 14.4 1.9 1.9c.8.8 2.1.8 2.9 0l1.9-1.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" className={common} fill="none" aria-hidden="true">
-      <path d="M12 3.6 13.7 9l5.6 1.7-5.6 1.7L12 18l-1.7-5.6-5.6-1.7L10.3 9 12 3.6Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-      <path d="M18.5 16.5 19.2 19l2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7.7-2.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -174,6 +130,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-grid">
           <div className="hero-copy">
+            <p className="hero-kicker">Business • Communication • Execution</p>
             <h1 className="hero-title">
               <span>Arpan</span>
               <span>Samadder</span>
@@ -220,7 +177,7 @@ export default function Home() {
         <div className="highlight-grid">
           {highlights.map((item) => (
             <article className="feature-card" key={item.title}>
-              <div className="icon-circle"><IconMark type={item.icon} /></div>
+              <div className="icon-circle">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.detail}</p>
             </article>
@@ -244,7 +201,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="experience-detail">{item.detail}</p>
-              <p className="experience-date"><span aria-hidden="true">▣</span> {item.date}</p>
+              <p className="experience-date">{item.date}</p>
             </article>
           ))}
         </div>
@@ -258,7 +215,7 @@ export default function Home() {
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
-              <div className={`project-visual ${project.visual}`}>
+              <div className="project-visual">
                 <span />
                 <span />
                 <span />
@@ -305,7 +262,9 @@ export default function Home() {
       <section className="final-cta">
         <div className="cta-glow" />
         <div className="cta-copy">
+          <p className="cta-label">Open to internships, campus roles, and project work</p>
           <h2>Need someone who can plan, communicate, organize, and execute?</h2>
+          <p>I am open to internships, campus ambassador roles, brand communication work, campaign support, and project-based collaboration.</p>
         </div>
         <div className="cta-actions">
           <Link href="/hire-me" className="primary-action">Hire Me <span aria-hidden="true">→</span></Link>
