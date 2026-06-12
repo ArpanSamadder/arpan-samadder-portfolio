@@ -104,9 +104,144 @@ const skills = [
   "Public Speaking",
 ];
 
+const previewPolishCss = `
+  .hero-section {
+    min-height: calc(100vh - 82px);
+  }
+
+  .hero-grid {
+    min-height: calc(100vh - 82px);
+    padding-top: 30px;
+    padding-bottom: 16px;
+  }
+
+  .hero-copy {
+    padding-top: 6px;
+  }
+
+  .hero-title {
+    font-size: clamp(62px, 7vw, 86px);
+    letter-spacing: -0.055em;
+  }
+
+  .hero-role {
+    margin-top: 28px;
+  }
+
+  .hero-description {
+    margin-top: 24px;
+    max-width: 560px;
+  }
+
+  .hero-actions {
+    margin-top: 32px;
+  }
+
+  .quick-links {
+    margin-top: 24px;
+  }
+
+  .hero-visual {
+    height: min(600px, calc(100vh - 132px));
+    min-height: 510px;
+  }
+
+  .hero-ring-main {
+    width: 500px;
+    height: 500px;
+    border-width: 5px;
+  }
+
+  .hero-glow {
+    width: 490px;
+    height: 490px;
+  }
+
+  .hero-cutout {
+    width: min(505px, 70vw);
+    bottom: -4px;
+    transform: translateX(-35%);
+  }
+
+  .content-panel {
+    padding: 30px;
+  }
+
+  .highlights-panel {
+    margin-top: 18px;
+  }
+
+  .feature-card {
+    min-height: 214px;
+  }
+
+  .experience-card {
+    display: flex;
+    min-height: 266px;
+    flex-direction: column;
+    padding: 24px 22px 22px;
+  }
+
+  .experience-top h3 {
+    font-size: 15px;
+    line-height: 1.16;
+  }
+
+  .experience-detail {
+    margin-top: 26px;
+    padding-bottom: 0;
+  }
+
+  .experience-date {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+
+  .project-card {
+    min-height: 274px;
+  }
+
+  .project-visual {
+    height: 108px;
+  }
+
+  .project-body {
+    padding: 20px 22px 22px;
+  }
+
+  .final-cta {
+    min-height: 230px;
+  }
+
+  @media (max-width: 1100px) {
+    .hero-cutout {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero-title {
+      font-size: clamp(48px, 15vw, 68px);
+    }
+
+    .hero-visual {
+      min-height: 408px;
+      height: 420px;
+    }
+
+    .hero-cutout {
+      width: min(380px, 94vw);
+    }
+  }
+`;
+
 export default function Home() {
   return (
     <main className="home-page">
+      <style>{previewPolishCss}</style>
       <header className="site-header">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="logo-link" aria-label="Arpan Samadder Home">
@@ -130,7 +265,6 @@ export default function Home() {
       <section className="hero-section">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="hero-kicker">Business • Communication • Execution</p>
             <h1 className="hero-title">
               <span>Arpan</span>
               <span>Samadder</span>
