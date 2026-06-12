@@ -6,6 +6,7 @@ import "./highlight-icon-images.css";
 import "./experience-logo-images.css";
 import "./projects-preview-redesign.css";
 import "./card-interactions-and-images.css";
+import "./numbers-skills-polish.css";
 import CardInteractions from "./CardInteractions";
 
 export const metadata: Metadata = {
