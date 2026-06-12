@@ -127,21 +127,17 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-12 md:grid-cols-[0.92fr_1.08fr] md:px-8 md:pb-20 md:pt-16 lg:min-h-[720px]">
+      <section className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 pb-16 pt-12 md:grid-cols-[0.9fr_1.1fr] md:px-8 md:pb-20 md:pt-14 lg:min-h-[calc(100vh-81px)]">
         <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-600/25 blur-[110px]" />
         <div className="absolute left-1/2 top-10 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[130px]" />
 
         <div className="relative z-10 max-w-2xl">
-          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-cyan-100/85 shadow-[0_0_32px_rgba(77,232,255,0.13)]">
-            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(77,232,255,0.9)]" />
-            Portfolio / Communication / Leadership
-          </div>
-          <h1 className="font-display text-6xl font-black leading-[0.84] tracking-[-0.06em] text-white md:text-8xl lg:text-[8.3rem]">
+          <h1 className="font-display text-6xl font-black leading-[0.86] tracking-[-0.055em] text-white drop-shadow-[0_0_28px_rgba(77,232,255,0.16)] md:text-8xl lg:text-[8.6rem]">
             Arpan
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-blue-300 drop-shadow-[0_0_34px_rgba(77,232,255,0.32)]">Samadder</span>
+            <span className="text-white">Samadder</span>
           </h1>
-          <p className="mt-7 max-w-2xl font-display text-xl font-bold text-cyan-100 md:text-2xl">
+          <p className="mt-7 max-w-2xl font-display text-xl font-bold text-cyan-300 drop-shadow-[0_0_18px_rgba(77,232,255,0.32)] md:text-2xl">
             Business Student | Brand Communicator | Campus Leader
           </p>
           <p className="mt-5 max-w-2xl text-base leading-8 text-blue-100/72 md:text-lg">
@@ -171,25 +167,25 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-orbit relative z-10 mx-auto flex min-h-[560px] w-full max-w-[600px] items-center justify-center">
-          <div className="hero-halo absolute h-[470px] w-[470px] rounded-full" />
-          <div className="hero-ring hero-ring-one absolute h-[520px] w-[520px] rounded-full" />
-          <div className="hero-ring hero-ring-two absolute h-[400px] w-[400px] rounded-full" />
-          <div className="light-trail light-trail-one" />
-          <div className="light-trail light-trail-two" />
-          <div className="light-trail light-trail-three" />
+        <div className="hero-composition relative z-10 mx-auto flex min-h-[610px] w-full max-w-[680px] items-center justify-center md:min-h-[690px]">
+          <div className="hero-neon-ring absolute" />
+          <div className="hero-orbital-ring hero-orbital-ring-one absolute" />
+          <div className="hero-orbital-ring hero-orbital-ring-two absolute" />
+          <div className="hero-blue-bloom absolute" />
+          <div className="electric-swoosh electric-swoosh-back electric-swoosh-one" />
+          <div className="electric-swoosh electric-swoosh-back electric-swoosh-two" />
+          <div className="electric-swoosh electric-swoosh-front electric-swoosh-three" />
+          <div className="electric-swoosh electric-swoosh-front electric-swoosh-four" />
 
           <AssetImage
             src="/images/arpan-hero-speaker.jpg"
             alt="Arpan Samadder speaking on stage"
             fallbackLabel="Hero image unavailable"
-            className="hero-portrait relative z-10 h-[520px] w-[390px] rounded-[2rem] border border-cyan-200/25 bg-[#061020] shadow-[0_30px_95px_rgba(0,0,0,0.62),0_0_80px_rgba(37,99,235,0.32)] md:h-[590px] md:w-[430px]"
-            fallbackClassName="bg-[radial-gradient(circle_at_30%_20%,rgba(77,232,255,0.28),transparent_30%),linear-gradient(145deg,#08235a,#050b18)]"
+            className="hero-portrait relative z-10 h-[600px] w-[470px] bg-transparent md:h-[690px] md:w-[540px]"
+            fallbackClassName="bg-[radial-gradient(circle_at_42%_25%,rgba(77,232,255,0.24),transparent_30%),linear-gradient(145deg,#08235a,#050b18)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,transparent_0%,rgba(3,16,39,0.08)_35%,rgba(3,8,20,0.78)_100%)] mix-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020814] via-[#020814]/10 to-blue-950/18" />
-            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#020814] via-[#020814]/55 to-transparent" />
-            <div className="absolute -inset-px rounded-[2rem] ring-1 ring-inset ring-cyan-100/20" />
+            <div className="hero-photo-blue-wash absolute inset-0" />
+            <div className="hero-photo-edge-fade absolute inset-0" />
           </AssetImage>
         </div>
       </section>
