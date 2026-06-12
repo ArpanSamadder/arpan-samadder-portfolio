@@ -32,23 +32,26 @@
 
 .profile-page .profile-showcase-title::before,
 .profile-page .profile-showcase-title::after {
-  display: block !important;
+  content: none !important;
+  display: none !important;
+}
+
+.profile-page .profile-title-line--top {
+  color: rgba(248, 251, 255, 0.94) !important;
+  font-size: clamp(24px, 2.45vw, 34px) !important;
   line-height: 1.05 !important;
   letter-spacing: -0.055em !important;
   font-weight: 780 !important;
   white-space: nowrap !important;
 }
 
-.profile-page .profile-showcase-title::before {
-  content: "A Business Communicator With An" !important;
-  color: rgba(248, 251, 255, 0.94) !important;
-  font-size: clamp(24px, 2.45vw, 34px) !important;
-}
-
-.profile-page .profile-showcase-title::after {
-  content: "Execution-First Mindset" !important;
+.profile-page .profile-title-line--bottom {
   color: #187dff !important;
   font-size: clamp(34px, 3.38vw, 46px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.055em !important;
+  font-weight: 780 !important;
+  white-space: nowrap !important;
   margin-top: 6px !important;
 }
 
@@ -130,11 +133,11 @@
     grid-template-columns: minmax(430px, 0.94fr) minmax(430px, 1.06fr) !important;
   }
 
-  .profile-page .profile-showcase-title::before {
+  .profile-page .profile-title-line--top {
     font-size: clamp(22px, 2.35vw, 30px) !important;
   }
 
-  .profile-page .profile-showcase-title::after {
+  .profile-page .profile-title-line--bottom {
     font-size: clamp(30px, 3.15vw, 40px) !important;
   }
 
@@ -155,17 +158,17 @@
     white-space: normal !important;
   }
 
-  .profile-page .profile-showcase-title::before,
-  .profile-page .profile-showcase-title::after {
+  .profile-page .profile-title-line--top,
+  .profile-page .profile-title-line--bottom {
     line-height: 1.08 !important;
     white-space: normal !important;
   }
 
-  .profile-page .profile-showcase-title::before {
+  .profile-page .profile-title-line--top {
     font-size: clamp(22px, 6.8vw, 32px) !important;
   }
 
-  .profile-page .profile-showcase-title::after {
+  .profile-page .profile-title-line--bottom {
     font-size: clamp(30px, 9vw, 42px) !important;
   }
 
