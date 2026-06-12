@@ -1,0 +1,66 @@
+.final-cta {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 28px !important;
+  min-height: 0 !important;
+  padding: 24px 54px !important;
+  overflow: hidden !important;
+}
+
+.final-cta .cta-glow,
+.final-cta .cta-label,
+.final-cta .cta-copy > p:not(.cta-label) {
+  display: none !important;
+}
+
+.final-cta .cta-copy {
+  max-width: 720px !important;
+}
+
+.final-cta h2 {
+  max-width: 720px !important;
+  margin: 0 !important;
+  font-size: clamp(34px, 3.4vw, 44px) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.055em !important;
+}
+
+.final-cta .cta-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 16px !important;
+  margin: 0 !important;
+}
+
+.final-cta .primary-action,
+.final-cta .secondary-action {
+  min-width: 176px !important;
+  min-height: 46px !important;
+}
+
+@media (max-width: 720px) {
+  .final-cta {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 22px 18px !important;
+  }
+
+  .final-cta h2 {
+    max-width: 100% !important;
+    font-size: 28px !important;
+    line-height: 1.08 !important;
+  }
+
+  .final-cta .cta-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .final-cta .primary-action,
+  .final-cta .secondary-action {
+    width: 100% !important;
+    min-height: 42px !important;
+  }
+}
