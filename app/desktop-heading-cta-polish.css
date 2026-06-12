@@ -1,0 +1,38 @@
+/* Final desktop polish for Projects heading and compact CTA */
+@media (min-width: 721px) {
+  .home-page section[aria-labelledby="projects-title"] .section-head h2 {
+    font-size: clamp(26px, 2.4vw, 34px) !important;
+    line-height: 1 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .final-cta {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 24px !important;
+    padding: 22px 54px !important;
+  }
+
+  .final-cta .cta-copy {
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  .final-cta h2 {
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: clamp(25px, 2.15vw, 34px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+    white-space: nowrap !important;
+  }
+
+  .final-cta .cta-actions {
+    flex: 0 0 auto !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .final-cta h2 {
+    white-space: normal !important;
+  }
+}
