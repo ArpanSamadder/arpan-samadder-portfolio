@@ -5,6 +5,8 @@ import "./highlights-redesign.css";
 import "./highlight-icon-images.css";
 import "./experience-logo-images.css";
 import "./projects-preview-redesign.css";
+import "./card-interactions-and-images.css";
+import CardInteractions from "./CardInteractions";
 
 export const metadata: Metadata = {
   title: "Arpan Samadder | Portfolio",
@@ -14,7 +16,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CardInteractions />
+        {children}
+      </body>
     </html>
   );
 }
