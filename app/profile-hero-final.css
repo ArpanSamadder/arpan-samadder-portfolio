@@ -3,7 +3,8 @@
   grid-template-columns: minmax(520px, 0.92fr) minmax(520px, 1.08fr) !important;
   min-height: clamp(500px, 62vh, 580px) !important;
   gap: 18px !important;
-  padding-top: 18px !important;
+  padding-top: 38px !important;
+  align-items: start !important;
   overflow: visible !important;
 }
 
@@ -224,6 +225,8 @@
     grid-template-columns: 1fr !important;
     gap: 10px !important;
     min-height: auto !important;
+    padding-top: 24px !important;
+    align-items: center !important;
     overflow: hidden !important;
   }
 
