@@ -1,1 +1,1 @@
-#x:before{font-size:37px}
+body h1.x:before{font-size:37px}
