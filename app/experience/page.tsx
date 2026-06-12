@@ -205,6 +205,42 @@ const experienceStyles = `
   letter-spacing: -0.08em;
 }
 
+.exp-logo--text {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(24, 125, 255, 0.55);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(24, 125, 255, 0.18), transparent 56%),
+    rgba(4, 18, 40, 0.72);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  box-shadow: inset 0 0 24px rgba(24, 125, 255, 0.11), 0 0 24px rgba(24, 125, 255, 0.08);
+}
+
+.exp-logo--solvia {
+  border-color: rgba(82, 180, 255, 0.68);
+  color: #52b4ff;
+}
+
+.exp-logo--cover {
+  border-color: rgba(50, 240, 91, 0.55);
+  color: #32f05b;
+}
+
+.exp-logo--excellence {
+  border-color: rgba(24, 125, 255, 0.75);
+  color: var(--blue-soft);
+}
+
+.exp-logo--ysse {
+  border-color: rgba(24, 125, 255, 0.62);
+  color: #ffffff;
+  font-size: 24px;
+}
+
 .exp-logo--biztigation { background-image: url("/images/biztigation.png"); }
 .exp-logo--jucc { background-image: url("/images/jucc.png"); }
 .exp-logo--mofa { background-image: url("/images/mofa.png"); }
@@ -406,6 +442,14 @@ const experienceStyles = `
     font-size: 24px;
   }
 
+  .exp-logo--text {
+    font-size: 15px;
+  }
+
+  .exp-logo--ysse {
+    font-size: 12px;
+  }
+
   .exp-body h2 {
     font-size: 18px;
     line-height: 1.22;
@@ -510,6 +554,38 @@ const experiences = [
     detail: "Contributed to outreach programs, event support, and community engagement initiatives.",
     logoClass: "exp-logo--mofa",
   },
+  {
+    title: "Media Coordinator",
+    organization: "Solvía Foundation",
+    date: "Mar 2026 – May 2026",
+    detail: "Managed full social media presence for a 32,000+ follower Facebook page, handling content planning, creation, publishing, graphics, videos, and community responses.",
+    logoClass: "exp-logo--text exp-logo--solvia",
+    logoText: "SF",
+  },
+  {
+    title: "Cover Designer",
+    organization: "Sense of Return 2.0, Finance Fest 3.0",
+    date: "Jan 2025 – Mar 2025",
+    detail: "Independently designed the complete 100+ page event souvenir magazine within 2+ weeks, with 150+ printed copies and strong event appreciation.",
+    logoClass: "exp-logo--text exp-logo--cover",
+    logoText: "SR",
+  },
+  {
+    title: "Data Analysis and Marketing Intern",
+    organization: "Excellence Bangladesh",
+    date: "Jun 2023 – Sep 2023",
+    detail: "Created marketing campaigns and promotional materials supporting 3 job fairs and 4-5 career workshops, and compiled performance reports for supervisors.",
+    logoClass: "exp-logo--text exp-logo--excellence",
+    logoText: "EB",
+  },
+  {
+    title: "Operations Management Intern",
+    organization: "YSSE",
+    date: "Aug 2023 – Feb 2024",
+    detail: "Tracked attendance, hosted online sessions, managed intern support, and compiled weekly workflow reports for remote team coordination.",
+    logoClass: "exp-logo--text exp-logo--ysse",
+    logoText: "YSSE",
+  },
 ];
 
 function CalendarIcon() {
@@ -610,7 +686,7 @@ export default function ExperiencePage() {
           ))}
         </section>
 
-        <p className="experience-count">Showing 1 to 4 of 4 experiences</p>
+        <p className="experience-count">Showing 1 to 8 of 8 experiences</p>
 
         <section className="experience-cta" aria-label="Experience call to action">
           <h2>Every role has been a step toward becoming the person teams trust when ideas need to be organized and executed.</h2>
