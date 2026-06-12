@@ -37,10 +37,63 @@
 }
 
 @media (max-width: 720px) {
+  .home-page .feature-card {
+    cursor: pointer !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    transition:
+      min-height 220ms ease,
+      padding 220ms ease,
+      border-color 220ms ease,
+      background 220ms ease !important;
+  }
+
+  .home-page .feature-card:hover,
+  .home-page .feature-card:active,
+  .home-page .feature-card:focus-within {
+    align-items: flex-start !important;
+    border-color: rgba(24, 125, 255, 0.44) !important;
+    background: rgba(4, 17, 40, 0.86) !important;
+  }
+
   .home-page .feature-card .icon-circle {
     width: 42px !important;
     height: 42px !important;
     margin: 0 12px 0 0 !important;
     flex: 0 0 42px !important;
+  }
+
+  .home-page .feature-card h3 {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 42px !important;
+    flex: 1 1 0 !important;
+  }
+
+  .home-page .feature-card p {
+    display: block !important;
+    flex: 0 0 100% !important;
+    max-height: 0 !important;
+    margin: 0 0 0 54px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    transform: translateY(-4px) !important;
+    transition:
+      max-height 240ms ease,
+      margin-top 240ms ease,
+      opacity 200ms ease,
+      transform 240ms ease !important;
+  }
+
+  .home-page .feature-card:hover p,
+  .home-page .feature-card:active p,
+  .home-page .feature-card:focus-within p {
+    max-height: 90px !important;
+    margin-top: 6px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 }
