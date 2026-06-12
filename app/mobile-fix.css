@@ -107,6 +107,45 @@
     border-radius: 7px !important;
   }
 
+  .quick-links {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    font-size: 9.8px !important;
+  }
+
+  .quick-links a {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .quick-links a:first-child {
+    flex-shrink: 0 !important;
+  }
+
+  .quick-links a:last-child {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .quick-links a:first-child::after {
+    content: "" !important;
+    width: 1px !important;
+    height: 12px !important;
+    margin-left: 4px !important;
+    background: rgba(255, 255, 255, 0.28) !important;
+    flex: 0 0 auto !important;
+  }
+
   .hero-section {
     padding-top: 0;
   }
