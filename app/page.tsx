@@ -104,144 +104,9 @@ const skills = [
   "Public Speaking",
 ];
 
-const previewPolishCss = `
-  .hero-section {
-    min-height: calc(100vh - 82px);
-  }
-
-  .hero-grid {
-    min-height: calc(100vh - 82px);
-    padding-top: 30px;
-    padding-bottom: 16px;
-  }
-
-  .hero-copy {
-    padding-top: 6px;
-  }
-
-  .hero-title {
-    font-size: clamp(62px, 7vw, 86px);
-    letter-spacing: -0.055em;
-  }
-
-  .hero-role {
-    margin-top: 28px;
-  }
-
-  .hero-description {
-    margin-top: 24px;
-    max-width: 560px;
-  }
-
-  .hero-actions {
-    margin-top: 32px;
-  }
-
-  .quick-links {
-    margin-top: 24px;
-  }
-
-  .hero-visual {
-    height: min(600px, calc(100vh - 132px));
-    min-height: 510px;
-  }
-
-  .hero-ring-main {
-    width: 500px;
-    height: 500px;
-    border-width: 5px;
-  }
-
-  .hero-glow {
-    width: 490px;
-    height: 490px;
-  }
-
-  .hero-cutout {
-    width: min(505px, 70vw);
-    bottom: -4px;
-    transform: translateX(-35%);
-  }
-
-  .content-panel {
-    padding: 30px;
-  }
-
-  .highlights-panel {
-    margin-top: 18px;
-  }
-
-  .feature-card {
-    min-height: 214px;
-  }
-
-  .experience-card {
-    display: flex;
-    min-height: 266px;
-    flex-direction: column;
-    padding: 24px 22px 22px;
-  }
-
-  .experience-top h3 {
-    font-size: 15px;
-    line-height: 1.16;
-  }
-
-  .experience-detail {
-    margin-top: 26px;
-    padding-bottom: 0;
-  }
-
-  .experience-date {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    margin-top: auto;
-    padding-top: 20px;
-  }
-
-  .project-card {
-    min-height: 274px;
-  }
-
-  .project-visual {
-    height: 108px;
-  }
-
-  .project-body {
-    padding: 20px 22px 22px;
-  }
-
-  .final-cta {
-    min-height: 230px;
-  }
-
-  @media (max-width: 1100px) {
-    .hero-cutout {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (max-width: 760px) {
-    .hero-title {
-      font-size: clamp(48px, 15vw, 68px);
-    }
-
-    .hero-visual {
-      min-height: 408px;
-      height: 420px;
-    }
-
-    .hero-cutout {
-      width: min(380px, 94vw);
-    }
-  }
-`;
-
 export default function Home() {
   return (
     <main className="home-page">
-      <style>{previewPolishCss}</style>
       <header className="site-header">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="logo-link" aria-label="Arpan Samadder Home">
@@ -250,7 +115,7 @@ export default function Home() {
 
           <div className="nav-pill" aria-label="Primary navigation links">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="nav-link">
+              <Link key={item.href} href={item.href} className={`nav-link ${item.href === "/" ? "active" : ""}`}>
                 {item.label}
               </Link>
             ))}
@@ -263,23 +128,26 @@ export default function Home() {
       </header>
 
       <section className="hero-section">
+        <div className="hero-bg-dots" />
+        <div className="hero-curve hero-curve-one" />
+        <div className="hero-curve hero-curve-two" />
         <div className="hero-grid">
           <div className="hero-copy">
             <h1 className="hero-title">
-              <span>Arpan</span>
-              <span>Samadder</span>
+              <span className="hero-title-line">I&apos;m <strong>Arpan</strong></span>
+              <span className="hero-title-line">Samadder</span>
             </h1>
-            <p className="hero-role">Business Student <span>|</span> Brand Communicator <span>|</span> Campus Leader</p>
+            <p className="hero-role">Business Student. Brand Communicator. Campus Leader.</p>
             <p className="hero-description">
               I turn ideas into campaigns, events, systems, and student-led platforms by combining communication, leadership, and execution discipline.
             </p>
 
             <div className="hero-actions">
-              <Link href="/projects" className="primary-action">
-                View My Work <span aria-hidden="true">→</span>
-              </Link>
-              <Link href="/files/arpan-samadder-cv.pdf" className="secondary-action">
+              <Link href="/files/arpan-samadder-cv.pdf" className="primary-action">
                 Download CV <span aria-hidden="true">↓</span>
+              </Link>
+              <Link href="/hire-me" className="secondary-action">
+                Contact Me <span aria-hidden="true">→</span>
               </Link>
             </div>
 
@@ -290,16 +158,16 @@ export default function Home() {
           </div>
 
           <div className="hero-visual" aria-label="Arpan Samadder speaking with microphone">
-            <div className="hero-glow" />
+            <div className="hero-blue-haze" />
             <div className="hero-ring hero-ring-main" />
-            <div className="hero-ring hero-ring-secondary" />
-            <div className="hero-orbit hero-orbit-one" />
-            <div className="hero-orbit hero-orbit-two" />
-            <div className="hero-trail hero-trail-back-one" />
-            <div className="hero-trail hero-trail-back-two" />
+            <div className="hero-ring hero-ring-inner" />
+            <div className="hero-ring hero-ring-outer" />
+            <div className="hero-swirl hero-swirl-back" />
+            <div className="hero-swirl hero-swirl-mid" />
             <img src="/images/arpan-hero-cutout.png" alt="Arpan Samadder speaking with a microphone" className="hero-cutout" />
-            <div className="hero-trail hero-trail-front-one" />
-            <div className="hero-trail hero-trail-front-two" />
+            <div className="hero-swirl hero-swirl-front" />
+            <div className="hero-spark spark-one" />
+            <div className="hero-spark spark-two" />
           </div>
         </div>
       </section>
