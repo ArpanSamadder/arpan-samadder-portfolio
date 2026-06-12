@@ -4,6 +4,7 @@ import "./mobile-fix.css";
 import "./highlights-redesign.css";
 import "./highlight-icon-images.css";
 import "./experience-logo-images.css";
+import "./projects-preview-redesign.css";
 
 export const metadata: Metadata = {
   title: "Arpan Samadder | Portfolio",
