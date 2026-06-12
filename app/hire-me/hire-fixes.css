@@ -1,0 +1,85 @@
+.hire-page .hire-kicker {
+  display: none !important;
+}
+
+.hire-page .hire-title {
+  margin-top: 0 !important;
+}
+
+.hire-page .inline-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 22px !important;
+  height: 22px !important;
+  flex: 0 0 22px !important;
+}
+
+.hire-page .inline-icon .card-icon {
+  width: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  display: block !important;
+  flex: 0 0 22px !important;
+}
+
+.hire-page .hire-action.primary .inline-icon,
+.hire-page .primary-action .inline-icon,
+.hire-page .hire-action.primary .card-icon,
+.hire-page .primary-action .card-icon {
+  color: #ffffff !important;
+}
+
+.hire-page .role-list {
+  align-items: stretch !important;
+}
+
+.hire-page .role-item {
+  justify-content: flex-start !important;
+  text-align: left !important;
+  gap: 12px !important;
+  padding: 0 18px !important;
+  min-height: 52px !important;
+}
+
+.hire-page .role-item .inline-icon {
+  color: var(--blue) !important;
+}
+
+.hire-page .role-item span[aria-hidden="true"] {
+  margin-left: auto !important;
+  flex: 0 0 auto !important;
+}
+
+.hire-page .connect-actions {
+  align-items: stretch !important;
+}
+
+.hire-page .connect-actions .hire-action {
+  min-height: 58px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  text-align: center !important;
+}
+
+@media (max-width: 980px) {
+  .hire-page .role-item {
+    min-height: 40px !important;
+    padding: 0 12px !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hire-page .role-item .inline-icon,
+  .hire-page .role-item .inline-icon .card-icon {
+    width: 18px !important;
+    height: 18px !important;
+    flex-basis: 18px !important;
+  }
+
+  .hire-page .connect-actions .hire-action {
+    min-height: 44px !important;
+  }
+}
