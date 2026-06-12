@@ -1,5 +1,5 @@
 import "./hire-fixes.css";
 
-export default function Layout(props: { children: any }) {
+export default function Layout(props: { children: React.ReactNode }) {
   return props.children;
 }
