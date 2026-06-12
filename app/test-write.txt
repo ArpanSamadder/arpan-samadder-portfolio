@@ -1,1 +1,1 @@
-body h1.x:before{font-size:37px}
+.pro\66ile-showcase-title:before{font-size:37px}
