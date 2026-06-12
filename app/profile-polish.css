@@ -1,0 +1,194 @@
+/* Profile page polish overrides */
+.profile-page {
+  --profile-header-height: 74px;
+}
+
+.profile-page .mobile-menu-toggle,
+.profile-page .mobile-menu-button,
+.profile-page .mobile-menu-panel {
+  display: none !important;
+}
+
+@media (min-width: 1061px) {
+  .profile-page .site-header {
+    height: var(--profile-header-height) !important;
+    background: rgba(2, 7, 18, 0.98) !important;
+    border-bottom: 1px solid rgba(24, 125, 255, 0.16) !important;
+    box-shadow: none !important;
+  }
+
+  .profile-page .site-nav {
+    width: min(100%, 1088px) !important;
+    height: var(--profile-header-height) !important;
+    padding: 0 !important;
+  }
+
+  .profile-page .logo-link,
+  .profile-page .logo-mark {
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  .profile-page .nav-pill {
+    gap: 44px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .profile-page .nav-link {
+    padding: 28px 0 24px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.72) !important;
+  }
+
+  .profile-page .nav-link::after {
+    bottom: 17px !important;
+    height: 2px !important;
+    background: #187dff !important;
+    box-shadow: none !important;
+  }
+
+  .profile-page .nav-link.active,
+  .profile-page .nav-link:hover {
+    color: #187dff !important;
+  }
+
+  .profile-page .nav-link.active::after,
+  .profile-page .nav-link:hover::after {
+    width: 40px !important;
+  }
+
+  .profile-page .hire-button {
+    min-width: 134px !important;
+    min-height: 46px !important;
+    border-radius: 7px !important;
+    border-color: #187dff !important;
+    background: #187dff !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+  }
+
+  .profile-page .profile-hero {
+    padding-top: 38px !important;
+  }
+
+  .profile-page .profile-photo-card {
+    padding: 18px !important;
+  }
+
+  .profile-page .profile-photo-frame {
+    min-height: 305px !important;
+    background: radial-gradient(circle at 50% 10%, rgba(24, 125, 255, 0.26), transparent 48%), rgba(2, 7, 18, 0.72) !important;
+  }
+
+  .profile-page .profile-photo-frame img {
+    object-fit: cover !important;
+    object-position: center 18% !important;
+  }
+}
+
+@media (max-width: 1060px) {
+  .profile-page .site-header {
+    height: auto !important;
+    min-height: 70px !important;
+    border-bottom: 0 !important;
+    background: rgba(2, 7, 18, 0.98) !important;
+  }
+
+  .profile-page .site-nav {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 70px !important;
+    padding: 0 20px !important;
+  }
+
+  .profile-page .site-nav::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .profile-page .site-nav > .nav-pill,
+  .profile-page .site-nav > .hire-button {
+    display: none !important;
+  }
+
+  .profile-page .mobile-menu-toggle {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .profile-page .mobile-menu-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: end !important;
+    width: 44px !important;
+    height: 44px !important;
+    color: #ffffff !important;
+    font-size: 30px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    user-select: none !important;
+  }
+
+  .profile-page .mobile-menu-toggle:checked + .mobile-menu-button {
+    color: #187dff !important;
+  }
+
+  .profile-page .mobile-menu-panel {
+    grid-column: 1 / -1 !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: calc(100% + 40px) !important;
+    margin: 0 -20px !important;
+    padding: 10px 20px 18px !important;
+    border-top: 1px solid rgba(24, 125, 255, 0.18) !important;
+    border-bottom: 1px solid rgba(24, 125, 255, 0.18) !important;
+    background: #020712 !important;
+  }
+
+  .profile-page .mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    display: flex !important;
+  }
+
+  .profile-page .mobile-menu-link,
+  .profile-page .mobile-menu-hire {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 46px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 4px !important;
+    color: rgba(248, 251, 255, 0.82) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+  }
+
+  .profile-page .mobile-menu-link.active {
+    color: #187dff !important;
+  }
+
+  .profile-page .mobile-menu-hire {
+    justify-content: center !important;
+    margin-top: 8px !important;
+    border-radius: 7px !important;
+    color: #ffffff !important;
+    background: #187dff !important;
+  }
+
+  .profile-page .profile-photo-frame img {
+    object-position: center 16% !important;
+  }
+}
