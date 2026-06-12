@@ -102,37 +102,37 @@
   .home-page .experience-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0 !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(24, 125, 255, 0.24) !important;
-    border-radius: 8px !important;
-    background: rgba(3, 12, 29, 0.58) !important;
+    gap: 10px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
   }
 
   .home-page .experience-card {
-    min-height: 0 !important;
-    padding: 11px 12px !important;
-    border: 0 !important;
-    border-bottom: 1px solid rgba(24, 125, 255, 0.14) !important;
-    border-radius: 0 !important;
-    background: transparent !important;
+    min-height: 82px !important;
+    padding: 12px 14px !important;
+    border: 1px solid rgba(24, 125, 255, 0.24) !important;
+    border-radius: 7px !important;
+    background: rgba(3, 12, 29, 0.58) !important;
     box-shadow: none !important;
     cursor: pointer !important;
     transform: none !important;
+    overflow: hidden !important;
     transition:
-      background 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      padding 360ms cubic-bezier(0.22, 1, 0.36, 1) !important;
-  }
-
-  .home-page .experience-card:last-child {
-    border-bottom: 0 !important;
+      background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      min-height 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
   }
 
   .home-page .experience-card:hover,
   .home-page .experience-card:focus-within {
+    min-height: 132px !important;
     padding-top: 13px !important;
     padding-bottom: 13px !important;
+    border-color: rgba(24, 125, 255, 0.48) !important;
     background: rgba(24, 125, 255, 0.045) !important;
     box-shadow: inset 0 0 16px rgba(24, 125, 255, 0.04) !important;
   }
