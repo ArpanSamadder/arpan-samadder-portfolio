@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./mobile-fix.css";
 import "./highlights-redesign.css";
+import "./highlight-icon-images.css";
 
 export const metadata: Metadata = {
   title: "Arpan Samadder | Portfolio",
