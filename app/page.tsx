@@ -6,7 +6,6 @@ const navItems = [
   { label: "Profile", href: "/profile" },
   { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/projects" },
-  { label: "Hire Me", href: "/hire-me" },
 ];
 
 const highlights = [
@@ -76,35 +75,36 @@ const skills = [
 function SectionHeading({ title, copy }: { title: string; copy?: string }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl">{title}</h2>
-      {copy ? <p className="mt-5 text-base leading-8 text-blue-100/72 md:text-lg">{copy}</p> : null}
+      <p className="text-xs font-black uppercase tracking-[0.42em] text-cyan-200/75">Portfolio signal</p>
+      <h2 className="mt-3 font-display text-3xl font-black tracking-tight text-white md:text-5xl">{title}</h2>
+      {copy ? <p className="mt-4 text-base leading-8 text-blue-100/68 md:text-lg">{copy}</p> : null}
     </div>
   );
 }
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-radial-royal text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-royal-950/75 backdrop-blur-2xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8" aria-label="Main navigation">
+    <main className="home-shell min-h-screen overflow-hidden text-white">
+      <header className="sticky top-0 z-50 border-b border-cyan-300/10 bg-[#020814]/80 backdrop-blur-2xl">
+        <nav className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-5 py-4 md:px-8" aria-label="Main navigation">
           <Link href="/" className="group flex items-center" aria-label="Arpan Samadder Home">
             <AssetImage
               src="/images/logo-mark.png"
               alt="Arpan Samadder logo mark"
               fallbackLabel="AS"
-              className="h-11 w-11 rounded-2xl border border-cyan-300/25 bg-blue-500/10"
-              fallbackClassName="bg-gradient-to-br from-blue-700 via-blue-500 to-cyan-300"
+              className="h-12 w-12 rounded-2xl border border-cyan-300/35 bg-blue-500/10 shadow-[0_0_28px_rgba(77,232,255,0.18)] transition group-hover:border-cyan-200/70"
+              fallbackClassName="bg-gradient-to-br from-blue-950 via-blue-700 to-cyan-300"
             >
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20" />
             </AssetImage>
           </Link>
 
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
+          <div className="hidden justify-self-center rounded-full border border-cyan-200/15 bg-white/[0.045] p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.09),0_0_35px_rgba(37,99,235,0.16)] backdrop-blur-xl md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-blue-100/78 transition hover:bg-white/10 hover:text-white"
+                className="rounded-full px-5 py-2.5 text-sm font-semibold text-blue-100/78 transition hover:bg-cyan-300/10 hover:text-cyan-50 hover:shadow-[0_0_20px_rgba(77,232,255,0.14)]"
               >
                 {item.label}
               </Link>
@@ -113,152 +113,161 @@ export default function Home() {
 
           <Link
             href="/hire-me"
-            className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100 shadow-glow transition hover:bg-cyan-300/20"
+            className="justify-self-end rounded-full border border-cyan-300/50 bg-cyan-300/10 px-5 py-2.5 text-sm font-black text-cyan-50 shadow-[0_0_28px_rgba(77,232,255,0.25),inset_0_0_18px_rgba(77,232,255,0.08)] transition hover:-translate-y-0.5 hover:bg-cyan-300/20"
           >
             Hire Me
           </Link>
         </nav>
-        <div className="flex gap-2 overflow-x-auto border-t border-white/10 px-5 py-3 md:hidden">
+        <div className="flex gap-2 overflow-x-auto border-t border-cyan-300/10 px-5 py-3 md:hidden">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="shrink-0 rounded-full bg-white/[0.06] px-4 py-2 text-sm text-blue-50/80">
+            <Link key={item.href} href={item.href} className="shrink-0 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-blue-50/80">
               {item.label}
             </Link>
           ))}
         </div>
       </header>
 
-      <section className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pb-28 md:pt-24">
-        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="relative z-10 flex flex-col justify-center">
-          <h1 className="font-display text-5xl font-black leading-[0.96] tracking-tight text-white md:text-7xl lg:text-8xl">
-            I&apos;m <span className="text-cyan-300 drop-shadow-[0_0_24px_rgba(77,232,255,0.45)]">Arpan</span>
+      <section className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-12 md:grid-cols-[0.92fr_1.08fr] md:px-8 md:pb-20 md:pt-16 lg:min-h-[720px]">
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-600/25 blur-[110px]" />
+        <div className="absolute left-1/2 top-10 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[130px]" />
+
+        <div className="relative z-10 max-w-2xl">
+          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-4 py-2 text-xs font-black uppercase tracking-[0.24em] text-cyan-100/85 shadow-[0_0_32px_rgba(77,232,255,0.13)]">
+            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(77,232,255,0.9)]" />
+            Portfolio / Communication / Leadership
+          </div>
+          <h1 className="font-display text-6xl font-black leading-[0.84] tracking-[-0.06em] text-white md:text-8xl lg:text-[8.3rem]">
+            Arpan
             <br />
-            Samadder
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-blue-300 drop-shadow-[0_0_34px_rgba(77,232,255,0.32)]">Samadder</span>
           </h1>
-          <p className="mt-6 max-w-2xl font-display text-2xl font-semibold text-cyan-100 md:text-3xl">
-            Business Student. Brand Communicator. Campus Leader.
+          <p className="mt-7 max-w-2xl font-display text-xl font-bold text-cyan-100 md:text-2xl">
+            Business Student | Brand Communicator | Campus Leader
           </p>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100/74">
+          <p className="mt-5 max-w-2xl text-base leading-8 text-blue-100/72 md:text-lg">
             I turn ideas into campaigns, events, systems, and student-led platforms by combining communication, leadership, and execution discipline.
           </p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/projects"
+              className="rounded-full bg-cyan-200 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-[#031027] shadow-[0_0_34px_rgba(77,232,255,0.32)] transition hover:-translate-y-1 hover:bg-white"
+            >
+              View My Work
+            </Link>
             <Link
               href="/files/arpan-samadder-cv.pdf"
-              className="rounded-full bg-white px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-royal-950 transition hover:-translate-y-1 hover:shadow-glow"
+              className="rounded-full border border-cyan-300/45 bg-white/[0.045] px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 shadow-[inset_0_0_20px_rgba(77,232,255,0.08)] transition hover:-translate-y-1 hover:bg-cyan-300/20"
             >
               Download CV
             </Link>
-            <Link
-              href="/hire-me"
-              className="rounded-full border border-cyan-300/45 bg-cyan-300/10 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20"
-            >
-              Contact Me
-            </Link>
           </div>
-          <div className="mt-8 flex flex-col gap-3 text-sm text-blue-100/72 sm:flex-row sm:flex-wrap sm:items-center">
-            <a href="mailto:arpansamadder110@gmail.com" className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 transition hover:border-cyan-200/40 hover:text-cyan-100">
+          <div className="mt-7 flex flex-col gap-3 text-sm text-blue-100/72 sm:flex-row sm:flex-wrap sm:items-center">
+            <a href="mailto:arpansamadder110@gmail.com" className="rounded-full border border-cyan-200/15 bg-white/[0.045] px-4 py-2 transition hover:border-cyan-200/50 hover:text-cyan-100">
               Email: arpansamadder110@gmail.com
             </a>
-            <a href="https://linkedin.com/in/arpansamadder/" className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 transition hover:border-cyan-200/40 hover:text-cyan-100">
+            <a href="https://linkedin.com/in/arpansamadder/" className="rounded-full border border-cyan-200/15 bg-white/[0.045] px-4 py-2 transition hover:border-cyan-200/50 hover:text-cyan-100">
               LinkedIn: linkedin.com/in/arpansamadder/
             </a>
           </div>
         </div>
 
-        <div className="relative z-10">
-          <div className="absolute -left-8 top-8 h-28 w-28 rounded-full border border-cyan-200/20" />
-          <div className="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-cyan-300/10 blur-2xl" />
+        <div className="hero-orbit relative z-10 mx-auto flex min-h-[560px] w-full max-w-[600px] items-center justify-center">
+          <div className="hero-halo absolute h-[470px] w-[470px] rounded-full" />
+          <div className="hero-ring hero-ring-one absolute h-[520px] w-[520px] rounded-full" />
+          <div className="hero-ring hero-ring-two absolute h-[400px] w-[400px] rounded-full" />
+          <div className="light-trail light-trail-one" />
+          <div className="light-trail light-trail-two" />
+          <div className="light-trail light-trail-three" />
+
           <AssetImage
             src="/images/arpan-hero-speaker.jpg"
             alt="Arpan Samadder speaking on stage"
-            fallbackLabel="Hero image placeholder"
-            className="min-h-[520px] rounded-[2.5rem] border border-white/15 bg-gradient-to-br from-blue-950 via-blue-800 to-cyan-900 shadow-card"
-            fallbackClassName="bg-[radial-gradient(circle_at_30%_20%,rgba(77,232,255,0.25),transparent_28%),linear-gradient(145deg,#08235a,#050b18)]"
+            fallbackLabel="Hero image unavailable"
+            className="hero-portrait relative z-10 h-[520px] w-[390px] rounded-[2rem] border border-cyan-200/25 bg-[#061020] shadow-[0_30px_95px_rgba(0,0,0,0.62),0_0_80px_rgba(37,99,235,0.32)] md:h-[590px] md:w-[430px]"
+            fallbackClassName="bg-[radial-gradient(circle_at_30%_20%,rgba(77,232,255,0.28),transparent_30%),linear-gradient(145deg,#08235a,#050b18)]"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-royal-950/78 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-100/80">Available for</p>
-              <p className="mt-2 font-display text-2xl font-bold text-white">Campaigns, events, outreach, and execution roles</p>
-            </div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,transparent_0%,rgba(3,16,39,0.08)_35%,rgba(3,8,20,0.78)_100%)] mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020814] via-[#020814]/10 to-blue-950/18" />
+            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#020814] via-[#020814]/55 to-transparent" />
+            <div className="absolute -inset-px rounded-[2rem] ring-1 ring-inset ring-cyan-100/20" />
           </AssetImage>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <section className="relative mx-auto max-w-7xl px-5 py-10 md:px-8">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {highlights.map((item, index) => (
-            <article key={item.title} className="rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 shadow-card backdrop-blur-xl">
-              <span className="text-sm font-black text-cyan-200">0{index + 1}</span>
+            <article key={item.title} className="neon-card group rounded-[1.6rem] p-6">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cyan-200/25 bg-cyan-300/10 text-sm font-black text-cyan-100 shadow-[0_0_24px_rgba(77,232,255,0.13)]">0{index + 1}</span>
               <h3 className="mt-5 font-display text-xl font-bold text-white">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-blue-100/65">{item.detail}</p>
+              <p className="mt-3 text-sm leading-7 text-blue-100/64">{item.detail}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <SectionHeading title="Experience" />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <SectionHeading title="Experience" copy="A compact view of the roles where communication, operations, sponsorship, and leadership became practical execution." />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {experiences.map((item) => (
-            <article key={`${item.role}-${item.organization}`} className="rounded-[2rem] border border-blue-300/15 bg-blue-950/45 p-7 transition hover:-translate-y-2 hover:border-cyan-200/35 hover:bg-blue-900/50">
-              <div className="mb-8 h-1 w-16 rounded-full bg-gradient-to-r from-cyan-300 to-blue-500" />
-              <h3 className="font-display text-2xl font-bold text-white">{item.role}</h3>
-              <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-cyan-200/78">{item.organization}</p>
-              <p className="mt-4 leading-7 text-blue-100/68">{item.detail}</p>
+            <article key={`${item.role}-${item.organization}`} className="neon-card group rounded-[1.75rem] p-6 transition hover:-translate-y-2">
+              <div className="mb-7 h-1 w-16 rounded-full bg-gradient-to-r from-cyan-200 via-blue-400 to-transparent shadow-[0_0_18px_rgba(77,232,255,0.42)]" />
+              <h3 className="font-display text-xl font-bold text-white">{item.role}</h3>
+              <p className="mt-2 text-xs font-black uppercase tracking-[0.2em] text-cyan-200/78">{item.organization}</p>
+              <p className="mt-4 text-sm leading-7 text-blue-100/66">{item.detail}</p>
             </article>
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-9 text-center">
           <Link href="/experience" className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-300/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20">
             View All Experience
           </Link>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <SectionHeading title="Projects" />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {projects.map((project) => (
-            <article key={project} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] shadow-card backdrop-blur-xl">
-              <div className="flex h-52 items-center justify-center bg-gradient-to-br from-blue-950 via-blue-800/70 to-cyan-900/70">
-                <div className="rounded-3xl border border-cyan-200/25 bg-white/10 px-6 py-5 text-center backdrop-blur-md">
-                  <p className="text-xs font-black uppercase tracking-[0.35em] text-cyan-100/75">Placeholder</p>
-                  <p className="mt-2 font-display text-xl font-bold text-white">Visual pending</p>
-                </div>
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <SectionHeading title="Projects" copy="Selected platforms, campaign systems, and AI-assisted ideas shaped through student leadership and execution discipline." />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {projects.map((project, index) => (
+            <article key={project} className="neon-card group overflow-hidden rounded-[1.75rem]">
+              <div className="relative flex h-44 items-end overflow-hidden bg-[radial-gradient(circle_at_30%_20%,rgba(77,232,255,0.22),transparent_30%),linear-gradient(135deg,rgba(8,35,90,0.9),rgba(2,8,20,0.95))] p-5">
+                <div className="absolute -right-14 -top-14 h-44 w-44 rounded-full border border-cyan-200/20 shadow-[0_0_50px_rgba(77,232,255,0.18)]" />
+                <div className="absolute left-5 top-5 h-px w-24 bg-gradient-to-r from-cyan-200 to-transparent" />
+                <p className="relative text-xs font-black uppercase tracking-[0.32em] text-cyan-100/72">Project 0{index + 1}</p>
               </div>
-              <div className="p-7">
-                <h3 className="font-display text-2xl font-bold text-white">{project}</h3>
+              <div className="p-6">
+                <h3 className="font-display text-xl font-bold text-white">{project}</h3>
               </div>
             </article>
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-9 text-center">
           <Link href="/projects" className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-300/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20">
             View All Projects
           </Link>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid overflow-hidden rounded-[2.5rem] border border-cyan-200/15 bg-white/[0.055] shadow-card backdrop-blur-xl md:grid-cols-4">
+      <section className="mx-auto max-w-7xl px-5 py-12 md:px-8">
+        <div className="neon-card grid overflow-hidden rounded-[2rem] md:grid-cols-4">
           {numbers.map((item) => (
-            <div key={item.label} className="border-b border-white/10 p-8 text-center last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-              <p className="font-display text-4xl font-black text-cyan-100 md:text-5xl">{item.value}</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.22em] text-blue-100/60">{item.label}</p>
+            <div key={item.label} className="border-b border-cyan-200/10 p-7 text-center last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+              <p className="font-display text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-cyan-200 md:text-6xl">{item.value}</p>
+              <p className="mt-3 text-xs font-bold uppercase tracking-[0.24em] text-blue-100/58">{item.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <div className="grid gap-10 rounded-[2.5rem] border border-white/10 bg-blue-950/45 p-7 shadow-card backdrop-blur-xl md:grid-cols-[0.8fr_1.2fr] md:p-10">
+      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <div className="neon-card grid gap-8 rounded-[2rem] p-7 md:grid-cols-[0.8fr_1.2fr] md:p-10">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.35em] text-cyan-200/80">Core skills</p>
-            <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-5xl">A practical skill set for planning, communication, and execution.</h2>
+            <p className="text-xs font-black uppercase tracking-[0.4em] text-cyan-200/80">Core skills</p>
+            <h2 className="mt-4 font-display text-3xl font-black tracking-tight text-white md:text-5xl">A practical skill set for planning, communication, and execution.</h2>
           </div>
           <div className="flex flex-wrap content-start gap-3">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-cyan-200/20 bg-cyan-100/10 px-5 py-3 text-sm font-semibold text-cyan-50">
+              <span key={skill} className="rounded-full border border-cyan-200/20 bg-cyan-100/10 px-5 py-3 text-sm font-semibold text-cyan-50 shadow-[inset_0_0_16px_rgba(77,232,255,0.06)]">
                 {skill}
               </span>
             ))}
@@ -266,27 +275,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 pt-10 md:px-8" id="contact">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan-200/20 bg-gradient-to-br from-blue-700/70 via-blue-950 to-cyan-950 p-8 text-center shadow-card md:p-14">
-          <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/80 to-transparent" />
+      <section className="mx-auto max-w-7xl px-5 pb-24 pt-8 md:px-8" id="contact">
+        <div className="relative overflow-hidden rounded-[2.2rem] border border-cyan-200/20 bg-[radial-gradient(circle_at_18%_0%,rgba(77,232,255,0.24),transparent_30%),linear-gradient(135deg,rgba(8,35,90,0.95),rgba(2,8,20,0.98)_55%,rgba(3,16,39,0.96))] p-8 text-center shadow-[0_28px_90px_rgba(0,0,0,0.45),0_0_70px_rgba(37,99,235,0.16)] md:p-12">
+          <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/90 to-transparent" />
+          <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full border border-cyan-200/15" />
           <AssetImage
             src="/images/arpan-profile-photo.jpeg"
             alt="Arpan Samadder profile portrait"
-            fallbackLabel="Profile photo placeholder"
-            className="mx-auto h-28 w-28 rounded-full border border-cyan-100/35 bg-blue-900 shadow-glow"
+            fallbackLabel="Profile photo unavailable"
+            className="mx-auto h-24 w-24 rounded-full border border-cyan-100/40 bg-blue-900 shadow-[0_0_45px_rgba(77,232,255,0.22)]"
             fallbackClassName="bg-gradient-to-br from-cyan-500/40 via-blue-600 to-blue-950"
           />
-          <h2 className="mx-auto mt-8 max-w-3xl font-display text-3xl font-black tracking-tight text-white md:text-5xl">
+          <h2 className="mx-auto mt-7 max-w-3xl font-display text-3xl font-black tracking-tight text-white md:text-5xl">
             Need someone who can plan, communicate, organize, and execute?
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50/75">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50/72">
             I am open to internships, campus ambassador roles, part-time opportunities, brand communication work, campaign support, and project-based collaboration.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/hire-me" className="rounded-full bg-white px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-royal-950 transition hover:-translate-y-1">
+            <Link href="/hire-me" className="rounded-full bg-cyan-200 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-[#031027] shadow-[0_0_34px_rgba(77,232,255,0.28)] transition hover:-translate-y-1 hover:bg-white">
               Hire Me
             </Link>
-            <Link href="/hire-me" className="rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-white/15">
+            <Link href="/hire-me" className="rounded-full border border-cyan-200/25 bg-white/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-white/15">
               Contact Me
             </Link>
           </div>
