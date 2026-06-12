@@ -10,6 +10,7 @@ const navItems = [
 const profileStyles = `
 .profile-page {
   --blue: #187dff;
+  --blue-soft: #4fa1ff;
   --text: #f8fbff;
   --muted: rgba(232, 244, 255, 0.72);
   --line: rgba(24, 125, 255, 0.22);
@@ -42,12 +43,13 @@ const profileStyles = `
 .profile-showcase {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(380px, 1.12fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(390px, 1.1fr);
+  gap: 28px;
   align-items: center;
-  min-height: 560px;
+  min-height: 570px;
   padding-top: 28px;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .profile-showcase::before {
@@ -56,7 +58,7 @@ const profileStyles = `
   position: absolute;
   inset: 0 -8vw 0 auto;
   width: min(58vw, 760px);
-  opacity: 0.38;
+  opacity: 0.34;
   background-image: radial-gradient(rgba(24, 125, 255, 0.62) 1px, transparent 1px);
   background-size: 18px 18px;
   mask-image: radial-gradient(circle at 62% 44%, #000 0%, transparent 70%);
@@ -64,8 +66,8 @@ const profileStyles = `
 
 .profile-copy {
   position: relative;
-  z-index: 2;
-  max-width: 570px;
+  z-index: 3;
+  max-width: 660px;
 }
 
 .profile-kicker {
@@ -79,15 +81,30 @@ const profileStyles = `
 
 .profile-showcase-title {
   margin: 0;
-  color: rgba(248, 251, 255, 0.90);
-  font-size: clamp(44px, 5vw, 66px);
-  line-height: 1.08;
-  letter-spacing: -0.052em;
+  line-height: 1;
   font-weight: 780;
 }
 
-.profile-showcase-title span {
+.profile-title-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.profile-title-line--top {
+  color: rgba(248, 251, 255, 0.92);
+  font-size: clamp(38px, 3.8vw, 50px);
+  line-height: 1.04;
+  letter-spacing: -0.046em;
+}
+
+.profile-title-line--bottom {
+  margin-top: 5px;
   color: var(--blue);
+  font-size: clamp(46px, 5.1vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
 }
 
 .profile-showcase-lead {
@@ -110,34 +127,85 @@ const profileStyles = `
 
 .profile-visual {
   position: relative;
-  min-height: 540px;
+  min-height: 550px;
   align-self: stretch;
-}
-
-.profile-visual::before,
-.profile-visual::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  border: 2px solid rgba(24, 125, 255, 0.74);
-  border-radius: 50%;
-  box-shadow: 0 0 26px rgba(24, 125, 255, 0.26);
-  transform: rotate(-18deg);
+  overflow: visible;
 }
 
 .profile-visual::before {
-  width: min(46vw, 570px);
-  height: min(18vw, 230px);
-  right: -2%;
-  top: 30%;
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 5% -2% 0 6%;
+  z-index: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 58% 38%, rgba(24, 125, 255, 0.30), transparent 35%),
+    radial-gradient(circle at 64% 62%, rgba(24, 125, 255, 0.16), transparent 48%);
+  filter: blur(1px);
 }
 
-.profile-visual::after {
-  width: min(34vw, 430px);
+.profile-orbit-field {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  inset: 4% -3% 2% 0;
+}
+
+.profile-orbit-field::before,
+.profile-orbit-field::after {
+  content: "";
+  position: absolute;
+  border: 1.5px solid rgba(79, 161, 255, 0.58);
+  border-radius: 50%;
+  box-shadow: 0 0 26px rgba(24, 125, 255, 0.18);
+}
+
+.profile-orbit-field::before {
+  width: min(46vw, 560px);
+  height: min(19vw, 230px);
+  right: 2%;
+  top: 30%;
+  transform: rotate(-17deg);
+}
+
+.profile-orbit-field::after {
+  width: min(35vw, 430px);
   height: min(12vw, 150px);
-  right: 8%;
+  right: 10%;
   top: 47%;
-  opacity: 0.42;
+  opacity: 0.48;
+  transform: rotate(-17deg);
+}
+
+.profile-orbit-field span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  box-shadow: 0 0 18px rgba(79, 161, 255, 0.9);
+}
+
+.profile-orbit-field span:nth-child(1) {
+  right: 16%;
+  top: 29%;
+}
+
+.profile-orbit-field span:nth-child(2) {
+  right: 54%;
+  top: 52%;
+  width: 5px;
+  height: 5px;
+  opacity: 0.72;
+}
+
+.profile-orbit-field span:nth-child(3) {
+  right: 7%;
+  top: 62%;
+  width: 4px;
+  height: 4px;
+  opacity: 0.62;
 }
 
 .profile-portrait-glow {
@@ -145,19 +213,20 @@ const profileStyles = `
   position: absolute;
   right: 4%;
   bottom: 0;
+  z-index: 1;
   width: min(52vw, 620px);
   height: 84%;
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 45%, rgba(24, 125, 255, 0.22), transparent 62%);
+  background: radial-gradient(circle at 50% 45%, rgba(24, 125, 255, 0.20), transparent 62%);
   filter: blur(2px);
 }
 
 .profile-portrait-img {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 0;
   bottom: 0;
-  width: min(50vw, 610px);
+  width: min(48vw, 590px);
   height: 100%;
   object-fit: contain;
   object-position: right bottom;
@@ -384,9 +453,14 @@ const profileStyles = `
     padding-top: 28px;
   }
 
-  .profile-showcase-title {
-    font-size: 38px;
-    letter-spacing: -0.055em;
+  .profile-title-line--top {
+    font-size: clamp(21px, 6.2vw, 34px);
+    letter-spacing: -0.04em;
+  }
+
+  .profile-title-line--bottom {
+    font-size: clamp(30px, 8.8vw, 42px);
+    letter-spacing: -0.052em;
   }
 
   .profile-showcase-lead,
@@ -395,23 +469,28 @@ const profileStyles = `
   }
 
   .profile-visual {
-    min-height: 390px;
+    min-height: 410px;
     order: -1;
   }
 
   .profile-portrait-img {
     width: 100%;
     right: 0;
+    object-position: center bottom;
   }
 
-  .profile-visual::before {
+  .profile-orbit-field {
+    inset: 6% -6% 2% -6%;
+  }
+
+  .profile-orbit-field::before {
     width: 104%;
     height: 180px;
     right: -4%;
     top: 36%;
   }
 
-  .profile-visual::after {
+  .profile-orbit-field::after {
     width: 78%;
     height: 120px;
     right: 8%;
@@ -554,7 +633,8 @@ export default function ProfilePage() {
           <div className="profile-copy">
             <p className="profile-kicker">Profile</p>
             <h1 id="profile-title" className="profile-showcase-title">
-              A Business Communicator With An Execution-First <span>Mindset.</span>
+              <span className="profile-title-line profile-title-line--top">A Business Communicator With An</span>
+              <span className="profile-title-line profile-title-line--bottom">Execution-First Mindset</span>
             </h1>
             <p className="profile-showcase-lead">
               I am building my career around marketing, brand communication, campus activation, sponsorship outreach, business competitions, and AI-assisted execution.
@@ -565,8 +645,13 @@ export default function ProfilePage() {
           </div>
 
           <div className="profile-visual" aria-label="Arpan Samadder portrait">
+            <div className="profile-orbit-field" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <div className="profile-portrait-glow" aria-hidden="true" />
-            <img src="/images/arpan-profile-photo.jpeg" alt="Arpan Samadder" className="profile-portrait-img" />
+            <img src="/images/arpan-profile-cutout.png" alt="Arpan Samadder" className="profile-portrait-img" />
           </div>
         </section>
 
