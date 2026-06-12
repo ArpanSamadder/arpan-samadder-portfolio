@@ -45,19 +45,52 @@
 
   .mobile-menu-button {
     display: inline-flex !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 26px !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    letter-spacing: -0.06em !important;
+    color: #ffffff !important;
+    transition: color 180ms ease, transform 180ms ease, opacity 180ms ease !important;
+  }
+
+  .mobile-menu-button:hover,
+  .mobile-menu-toggle:checked + .mobile-menu-button {
+    color: #187dff !important;
+    transform: translateY(-1px);
   }
 
   .mobile-menu-panel {
+    display: flex !important;
+    flex-direction: column !important;
     width: calc(100% + 40px) !important;
+    max-height: 0 !important;
     margin: 0 -20px !important;
-    padding: 10px 20px 18px !important;
-    border-top: 1px solid rgba(24, 125, 255, 0.18) !important;
-    border-bottom: 1px solid rgba(24, 125, 255, 0.18) !important;
+    padding: 0 20px !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translateY(-8px) !important;
+    border-top: 1px solid rgba(24, 125, 255, 0) !important;
+    border-bottom: 1px solid rgba(24, 125, 255, 0) !important;
     border-left: 0 !important;
     border-right: 0 !important;
     border-radius: 0 !important;
     background: #020712 !important;
     box-shadow: none !important;
+    transition: max-height 260ms ease, padding 260ms ease, opacity 220ms ease, transform 220ms ease, border-color 220ms ease, visibility 0s linear 260ms !important;
+  }
+
+  .mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    max-height: 320px !important;
+    padding: 10px 20px 18px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    border-top-color: rgba(24, 125, 255, 0.18) !important;
+    border-bottom-color: rgba(24, 125, 255, 0.18) !important;
+    transition: max-height 280ms ease, padding 260ms ease, opacity 220ms ease, transform 220ms ease, border-color 220ms ease, visibility 0s linear 0s !important;
   }
 
   .mobile-menu-link,
