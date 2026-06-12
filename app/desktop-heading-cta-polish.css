@@ -38,7 +38,7 @@
   }
 
   .final-cta h2::before {
-    content: "Need someone who can plan, communicate, organize, and execute?" !important;
+    content: "Need someone who can plan, communicate, organize, and exec\\75te?" !important;
     display: block !important;
     color: #ffffff !important;
     font-size: clamp(18px, 1.45vw, 24px) !important;
@@ -75,12 +75,12 @@
   }
 
   .final-cta h2::before {
-    content: "Need someone who can plan, communicate, organize, and execute?" !important;
+    content: "Need someone who can plan, communicate, organize, and exec\\75te?" !important;
     display: block !important;
     color: #ffffff !important;
-    font-size: 20px !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.045em !important;
+    font-size: 13px !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.06em !important;
     font-weight: 800 !important;
     white-space: normal !important;
   }
