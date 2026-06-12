@@ -7,6 +7,265 @@ const navItems = [
   { label: "Projects", href: "/projects" },
 ];
 
+const heroOnlyPolish = `
+@media (min-width: 1061px) {
+  .site-header {
+    height: 74px;
+    background: rgba(2, 7, 18, 0.98);
+    border-bottom: 1px solid rgba(56, 223, 255, 0.10);
+    box-shadow: 0 8px 34px rgba(0, 0, 0, 0.20);
+  }
+
+  .site-nav {
+    width: min(100%, 1088px);
+    height: 74px;
+    padding: 0 0;
+  }
+
+  .logo-link {
+    width: 54px;
+    height: 54px;
+    filter: drop-shadow(0 0 22px rgba(56, 223, 255, 0.55));
+  }
+
+  .logo-mark {
+    width: 54px;
+    height: 54px;
+  }
+
+  .nav-pill {
+    gap: 44px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-link {
+    padding: 28px 0 24px;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(248, 251, 255, 0.72);
+  }
+
+  .nav-link::after {
+    bottom: 17px;
+    height: 2px;
+  }
+
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    width: 40px;
+  }
+
+  .hire-button {
+    min-width: 134px;
+    min-height: 46px;
+    border-radius: 7px;
+    font-size: 13px;
+  }
+
+  .hero-section {
+    height: 508px;
+    min-height: 508px;
+    background: #020816;
+  }
+
+  .hero-section::before {
+    background:
+      radial-gradient(circle at 72% 44%, rgba(23, 123, 255, 0.36), transparent 29%),
+      radial-gradient(circle at 63% 43%, rgba(56, 223, 255, 0.12), transparent 24%),
+      linear-gradient(90deg, #020711 0%, #020916 40%, #051d45 67%, #020711 100%);
+  }
+
+  .hero-bg-dots {
+    width: 210px;
+    height: 190px;
+    opacity: 0.50;
+    background-size: 14px 14px;
+  }
+
+  .hero-dots-left {
+    left: 0;
+    top: 138px;
+  }
+
+  .hero-dots-right {
+    right: 0;
+    top: 122px;
+  }
+
+  .hero-curve-one {
+    right: -8%;
+    top: 11%;
+    width: 56vw;
+    height: 24vw;
+    opacity: 0.45;
+  }
+
+  .hero-curve-two {
+    right: -3%;
+    top: 38%;
+    width: 50vw;
+    height: 18vw;
+    opacity: 0.26;
+  }
+
+  .hero-grid {
+    grid-template-columns: 0.93fr 1.07fr;
+    align-items: start;
+    width: min(100%, 1088px);
+    height: 508px;
+    min-height: 508px;
+    padding: 0 0;
+  }
+
+  .hero-copy {
+    max-width: 432px;
+    margin-top: 72px;
+    transform: none;
+  }
+
+  .hero-title {
+    font-size: clamp(54px, 5vw, 62px);
+    line-height: 0.98;
+    letter-spacing: -0.057em;
+    text-shadow: 0 0 20px rgba(23, 123, 255, 0.10);
+  }
+
+  .hero-title strong {
+    color: #187dff;
+    text-shadow: 0 0 26px rgba(23, 123, 255, 0.42);
+  }
+
+  .hero-role {
+    margin-top: 13px;
+    color: #25d9ff;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 750;
+  }
+
+  .hero-description {
+    max-width: 420px;
+    margin-top: 20px;
+    color: rgba(232, 244, 255, 0.80);
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .primary-action,
+  .secondary-action {
+    min-width: 166px;
+    min-height: 44px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .quick-links {
+    gap: 18px;
+    margin-top: 18px;
+    font-size: 12px;
+  }
+
+  .quick-links a:first-child::after {
+    content: "";
+    width: 1px;
+    height: 14px;
+    margin-left: 18px;
+    background: rgba(248, 251, 255, 0.32);
+  }
+
+  .hero-visual {
+    height: 508px;
+    min-height: 508px;
+    transform: none;
+  }
+
+  .hero-blue-haze {
+    left: 58%;
+    top: 242px;
+    width: 420px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(56, 223, 255, 0.30) 0%, rgba(23, 123, 255, 0.24) 36%, rgba(23, 123, 255, 0.08) 62%, transparent 78%);
+    filter: blur(7px);
+  }
+
+  .hero-ring-main {
+    left: 58%;
+    top: 246px;
+    width: 410px;
+    height: 410px;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(23, 123, 255, 0.98);
+    box-shadow: 0 0 20px rgba(23, 123, 255, 0.82), 0 0 62px rgba(23, 123, 255, 0.24), inset 0 0 46px rgba(23, 123, 255, 0.18);
+  }
+
+  .hero-ring-inner {
+    left: 58%;
+    top: 246px;
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(56, 223, 255, 0.23);
+  }
+
+  .hero-cutout {
+    left: 58%;
+    top: 36px;
+    bottom: auto;
+    width: 452px;
+    max-height: none;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 30px 42px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 20px rgba(23, 123, 255, 0.16));
+  }
+
+  .hero-swirl-back {
+    left: 16%;
+    top: 58%;
+    width: 780px;
+    height: 238px;
+    transform: rotate(-16deg);
+    border-top: 2px solid rgba(56, 223, 255, 0.18);
+    border-bottom: 1px solid rgba(23, 123, 255, 0.18);
+    box-shadow: 0 -1px 30px rgba(23, 123, 255, 0.18);
+  }
+
+  .hero-swirl-front {
+    left: 15%;
+    top: 73%;
+    width: 820px;
+    height: 160px;
+    transform: rotate(-13deg);
+    background: transparent;
+    border-top: 5px solid rgba(23, 123, 255, 0.72);
+    border-bottom: 2px solid rgba(56, 223, 255, 0.45);
+    border-radius: 50%;
+    box-shadow: 0 -6px 28px rgba(23, 123, 255, 0.50), 0 5px 28px rgba(56, 223, 255, 0.26);
+    filter: drop-shadow(0 0 20px rgba(56, 223, 255, 0.46));
+  }
+
+  .spark-one {
+    right: 24%;
+    top: 24%;
+  }
+
+  .spark-two {
+    right: 10%;
+    bottom: 25%;
+  }
+
+  .highlights-panel {
+    margin-top: 22px;
+  }
+}
+`;
+
 const highlights = [
   {
     icon: "01",
@@ -107,6 +366,7 @@ const skills = [
 export default function Home() {
   return (
     <main className="home-page">
+      <style>{heroOnlyPolish}</style>
       <header className="site-header">
         <nav className="site-nav" aria-label="Main navigation">
           <Link href="/" className="logo-link" aria-label="Arpan Samadder Home">
