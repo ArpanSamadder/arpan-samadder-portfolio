@@ -152,14 +152,14 @@ const heroOnlyPolish = `
     font-size: clamp(54px, 5vw, 62px);
     line-height: 0.98;
     letter-spacing: -0.057em;
-    font-weight: 900;
+    font-weight: 800;
     color: #ffffff;
     text-shadow: none;
   }
 
   .hero-title strong {
     color: #187dff;
-    font-weight: 900;
+    font-weight: 800;
     text-shadow: none;
   }
 
@@ -206,10 +206,24 @@ const heroOnlyPolish = `
   }
 
   .quick-links {
-    gap: 18px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 14px;
+    width: max-content;
+    max-width: none;
     margin-top: 18px;
     color: rgba(255, 255, 255, 0.70);
     font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .quick-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .quick-links span {
@@ -220,8 +234,9 @@ const heroOnlyPolish = `
     content: "";
     width: 1px;
     height: 14px;
-    margin-left: 18px;
+    margin-left: 16px;
     background: rgba(255, 255, 255, 0.30);
+    flex: 0 0 auto;
   }
 
   .hero-visual {
@@ -436,7 +451,7 @@ export default function Home() {
               <span className="hero-title-line hero-title-intro">I&apos;m <strong>Arpan</strong></span>
               <span className="hero-title-line">Samadder</span>
             </h1>
-            <p className="hero-role">Business Student. Brand Communicator. Campus Leader.</p>
+            <p className="hero-role">Business Student.&nbsp;&nbsp;Brand Communicator.&nbsp;&nbsp;Campus Leader.</p>
             <p className="hero-description">
               I turn ideas into campaigns, events, systems, and student-led platforms by combining communication, leadership, and execution discipline.
             </p>
