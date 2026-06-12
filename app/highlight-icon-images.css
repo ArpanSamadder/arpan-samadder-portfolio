@@ -1,0 +1,46 @@
+/* Use uploaded PNG icons for the Highlights section */
+.home-page .feature-card .icon-circle {
+  width: 58px !important;
+  height: 58px !important;
+  margin: 0 0 18px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  overflow: visible !important;
+}
+
+.home-page .feature-card .icon-circle::before {
+  content: none !important;
+  display: none !important;
+}
+
+.home-page .feature-card:nth-child(1) .icon-circle {
+  background-image: url("/images/megaphone.png") !important;
+}
+
+.home-page .feature-card:nth-child(2) .icon-circle {
+  background-image: url("/images/people.png") !important;
+}
+
+.home-page .feature-card:nth-child(3) .icon-circle {
+  background-image: url("/images/handshake.png") !important;
+}
+
+.home-page .feature-card:nth-child(4) .icon-circle {
+  background-image: url("/images/ai-spark.png") !important;
+}
+
+@media (max-width: 720px) {
+  .home-page .feature-card .icon-circle {
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 12px 0 0 !important;
+    flex: 0 0 42px !important;
+  }
+}
