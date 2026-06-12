@@ -1,0 +1,203 @@
+/* Project images, subtle detail links, and tap-to-expand support */
+.home-page .experience-card,
+.home-page .project-card {
+  position: relative !important;
+  outline: none !important;
+}
+
+.home-page .project-card .project-visual {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.home-page .project-card .project-visual span {
+  display: none !important;
+}
+
+.home-page .project-card:nth-child(1) .project-visual {
+  background-image:
+    linear-gradient(180deg, rgba(2, 7, 18, 0.12), rgba(2, 7, 18, 0.50)),
+    url("/images/biztigation.png") !important;
+}
+
+.home-page .project-card:nth-child(2) .project-visual {
+  background-image:
+    linear-gradient(180deg, rgba(2, 7, 18, 0.12), rgba(2, 7, 18, 0.56)),
+    url("/images/biztigation-2-crm.png") !important;
+}
+
+.home-page .project-card:nth-child(3) .project-visual {
+  background-image:
+    linear-gradient(180deg, rgba(2, 7, 18, 0.10), rgba(2, 7, 18, 0.48)),
+    url("/images/prottoy-ai.png") !important;
+}
+
+.home-page .project-card:nth-child(4) .project-visual {
+  background-image:
+    linear-gradient(180deg, rgba(2, 7, 18, 0.08), rgba(2, 7, 18, 0.48)),
+    url("/images/sense-of-return-2.png") !important;
+}
+
+@media (min-width: 721px) {
+  .home-page .experience-card {
+    padding-bottom: 54px !important;
+  }
+
+  .home-page .project-body {
+    padding-bottom: 56px !important;
+  }
+}
+
+.home-page .card-detail-link {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border: 1px solid rgba(169, 223, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(169, 223, 255, 0.68);
+  background: rgba(24, 125, 255, 0.045);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  opacity: 0.72;
+  transition:
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-page .card-detail-link:hover,
+.home-page .card-detail-link:focus-visible {
+  color: #187dff;
+  opacity: 1;
+  border-color: rgba(24, 125, 255, 0.42);
+  background: rgba(24, 125, 255, 0.10);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .home-page .experience-card,
+  .home-page section[aria-labelledby="projects-title"] .project-card {
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      min-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      background 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .home-page .experience-card:not(.is-expanded):not(:hover):not(:focus-within) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 82px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .home-page .experience-card.is-expanded,
+  .home-page .experience-card:hover,
+  .home-page .experience-card:focus-within,
+  .home-page section[aria-labelledby="projects-title"] .project-card.is-expanded,
+  .home-page section[aria-labelledby="projects-title"] .project-card:hover,
+  .home-page section[aria-labelledby="projects-title"] .project-card:focus-within {
+    min-height: 148px !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+    border-color: rgba(24, 125, 255, 0.50) !important;
+    background: rgba(24, 125, 255, 0.050) !important;
+    box-shadow: inset 0 0 18px rgba(24, 125, 255, 0.045) !important;
+  }
+
+  .home-page .experience-card.is-expanded,
+  .home-page .experience-card:hover,
+  .home-page .experience-card:focus-within {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-page .experience-card.is-expanded .experience-detail,
+  .home-page .experience-card:focus-within .experience-detail,
+  .home-page .experience-card:hover .experience-detail {
+    max-height: 100px !important;
+    opacity: 1 !important;
+    margin-top: 8px !important;
+    transform: translateY(0) !important;
+  }
+
+  .home-page .experience-card.is-expanded .experience-date,
+  .home-page .experience-card:focus-within .experience-date,
+  .home-page .experience-card:hover .experience-date {
+    max-height: 32px !important;
+    opacity: 1 !important;
+    margin-top: 5px !important;
+    transform: translateY(0) !important;
+  }
+
+  .home-page section[aria-labelledby="projects-title"] .project-card.is-expanded .project-body > p:not(.project-subtitle),
+  .home-page section[aria-labelledby="projects-title"] .project-card:focus-within .project-body > p:not(.project-subtitle),
+  .home-page section[aria-labelledby="projects-title"] .project-card:hover .project-body > p:not(.project-subtitle) {
+    max-height: 112px !important;
+    opacity: 1 !important;
+    margin-top: 7px !important;
+    transform: translateY(0) !important;
+  }
+
+  .home-page section[aria-labelledby="projects-title"] .project-visual {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .home-page .experience-card .card-detail-link,
+  .home-page section[aria-labelledby="projects-title"] .project-card .card-detail-link {
+    position: static !important;
+    align-self: flex-end !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: rgba(169, 223, 255, 0.68) !important;
+    background: transparent !important;
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-4px) !important;
+    transition:
+      max-height 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 360ms ease,
+      margin 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 520ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .home-page section[aria-labelledby="projects-title"] .project-card .card-detail-link {
+    grid-column: 2 !important;
+    justify-self: end !important;
+  }
+
+  .home-page .experience-card.is-expanded .card-detail-link,
+  .home-page .experience-card:focus-within .card-detail-link,
+  .home-page .experience-card:hover .card-detail-link,
+  .home-page section[aria-labelledby="projects-title"] .project-card.is-expanded .card-detail-link,
+  .home-page section[aria-labelledby="projects-title"] .project-card:focus-within .card-detail-link,
+  .home-page section[aria-labelledby="projects-title"] .project-card:hover .card-detail-link {
+    max-height: 22px !important;
+    margin-top: 8px !important;
+    opacity: 0.78 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+}

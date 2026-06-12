@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
+import "./mobile-fix.css";
+import "./highlights-redesign.css";
+import "./highlight-icon-images.css";
+import "./experience-logo-images.css";
+import "./projects-preview-redesign.css";
+import "./card-interactions-and-images.css";
+import "./numbers-skills-polish.css";
+import "./final-cta-compact.css";
+import "./desktop-heading-cta-polish.css";
+import CardInteractions from "./CardInteractions";
 
 export const metadata: Metadata = {
   title: "Arpan Samadder | Portfolio",
-  description: "Personal portfolio of Arpan Samadder — strategy, storytelling, creative technology, and growth-focused work.",
+  description: "Personal portfolio of Arpan Samadder, focused on brand communication, campus leadership, marketing, and project delivery.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en">
+      <body>
+        <CardInteractions />
+        {children}
+      </body>
     </html>
   );
 }

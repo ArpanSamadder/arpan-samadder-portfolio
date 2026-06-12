@@ -1,28 +1,452 @@
 import Link from "next/link";
-import { AssetImage } from "@/components/AssetImage";
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Profile", href: "/profile" },
   { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/projects" },
-  { label: "Hire Me", href: "/hire-me" },
 ];
+
+const heroOnlyPolish = `
+.home-page {
+  --blue: #187dff;
+  --blue-flat: #187dff;
+  --cyan: #187dff;
+  --font-headline: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.mobile-menu-toggle,
+.mobile-menu-button,
+.mobile-menu-panel {
+  display: none;
+}
+
+@media (min-width: 1061px) {
+  .site-header {
+    height: 74px;
+    background: rgba(2, 7, 18, 0.98);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.16);
+    box-shadow: none;
+  }
+
+  .site-nav {
+    width: min(100%, 1088px);
+    height: 74px;
+    padding: 0 0;
+  }
+
+  .logo-link {
+    width: 54px;
+    height: 54px;
+    filter: none;
+  }
+
+  .logo-mark {
+    width: 54px;
+    height: 54px;
+  }
+
+  .nav-pill {
+    gap: 44px;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-link {
+    padding: 28px 0 24px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .nav-link::after {
+    bottom: 17px;
+    height: 2px;
+    background: #187dff;
+    box-shadow: none;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    color: #187dff;
+  }
+
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    width: 40px;
+  }
+
+  .hire-button {
+    min-width: 134px;
+    min-height: 46px;
+    border-radius: 7px;
+    border-color: #187dff;
+    background: #187dff;
+    box-shadow: none;
+    color: #ffffff;
+    font-size: 13px;
+  }
+
+  .hero-section {
+    height: 508px;
+    min-height: 508px;
+    background: #020816;
+    border-bottom: 1px solid rgba(24, 125, 255, 0.12);
+  }
+
+  .hero-section::before {
+    background:
+      radial-gradient(circle at 73% 48%, rgba(24, 125, 255, 0.16), transparent 30%),
+      linear-gradient(90deg, #020711 0%, #020916 43%, #051a3a 67%, #020711 100%);
+  }
+
+  .hero-bg-dots {
+    width: 210px;
+    height: 190px;
+    opacity: 0.30;
+    background-image: radial-gradient(circle, rgba(24, 125, 255, 0.42) 0 1px, transparent 1.8px);
+    background-size: 14px 14px;
+  }
+
+  .hero-dots-left {
+    left: 0;
+    top: 138px;
+  }
+
+  .hero-dots-right {
+    right: 0;
+    top: 122px;
+  }
+
+  .hero-curve-one {
+    right: -8%;
+    top: 11%;
+    width: 56vw;
+    height: 24vw;
+    opacity: 0.22;
+    border-color: rgba(24, 125, 255, 0.12);
+  }
+
+  .hero-curve-two {
+    right: -3%;
+    top: 38%;
+    width: 50vw;
+    height: 18vw;
+    opacity: 0.16;
+    border-color: rgba(24, 125, 255, 0.10);
+  }
+
+  .hero-grid {
+    grid-template-columns: 0.93fr 1.07fr;
+    align-items: start;
+    width: min(100%, 1088px);
+    height: 508px;
+    min-height: 508px;
+    padding: 0 0;
+  }
+
+  .hero-copy {
+    max-width: 432px;
+    margin-top: 72px;
+    transform: none;
+  }
+
+  .hero-title {
+    font-family: var(--font-headline);
+    font-size: clamp(54px, 5vw, 62px);
+    line-height: 0.98;
+    letter-spacing: -0.057em;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: none;
+  }
+
+  .hero-title strong {
+    color: #187dff;
+    font-weight: 800;
+    text-shadow: none;
+  }
+
+  .hero-role {
+    margin-top: 13px;
+    color: #187dff;
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 700;
+  }
+
+  .hero-description {
+    max-width: 420px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .primary-action,
+  .secondary-action {
+    min-width: 166px;
+    min-height: 44px;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: none;
+  }
+
+  .primary-action {
+    color: #ffffff;
+    background: #187dff;
+    border-color: #187dff;
+  }
+
+  .secondary-action {
+    color: #ffffff;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .quick-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 14px;
+    width: max-content;
+    max-width: none;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .quick-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .quick-links span {
+    color: #187dff;
+  }
+
+  .quick-links a:first-child::after {
+    content: "";
+    width: 1px;
+    height: 14px;
+    margin-left: 16px;
+    background: rgba(255, 255, 255, 0.30);
+    flex: 0 0 auto;
+  }
+
+  .hero-visual {
+    height: 508px;
+    min-height: 508px;
+    transform: none;
+  }
+
+  .hero-blue-haze {
+    left: 58%;
+    top: 242px;
+    width: 420px;
+    height: 420px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(24, 125, 255, 0.14) 0%, rgba(24, 125, 255, 0.08) 42%, transparent 76%);
+    filter: none;
+  }
+
+  .hero-ring-main {
+    left: 58%;
+    top: 246px;
+    width: 410px;
+    height: 410px;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(24, 125, 255, 0.88);
+    box-shadow: none;
+  }
+
+  .hero-ring-inner {
+    left: 58%;
+    top: 246px;
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(24, 125, 255, 0.22);
+  }
+
+  .hero-cutout {
+    left: 58%;
+    top: 36px;
+    bottom: auto;
+    width: 452px;
+    max-height: none;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 30px 42px rgba(0, 0, 0, 0.40));
+  }
+
+  .hero-swirl-back {
+    left: 16%;
+    top: 58%;
+    width: 780px;
+    height: 238px;
+    transform: rotate(-16deg);
+    border-top: 1px solid rgba(24, 125, 255, 0.14);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.10);
+    box-shadow: none;
+  }
+
+  .hero-swirl-front {
+    left: 15%;
+    top: 73%;
+    width: 820px;
+    height: 160px;
+    transform: rotate(-13deg);
+    background: transparent;
+    border-top: 4px solid rgba(24, 125, 255, 0.58);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.24);
+    border-radius: 50%;
+    box-shadow: none;
+    filter: none;
+  }
+
+  .hero-spark {
+    display: none;
+  }
+
+  .highlights-panel {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    height: auto !important;
+    min-height: 70px !important;
+    border-bottom: 0 !important;
+    background: rgba(2, 7, 18, 0.98) !important;
+  }
+
+  .site-nav {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    height: auto !important;
+    min-height: 70px !important;
+    padding: 0 20px !important;
+  }
+
+  .site-nav::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .site-nav > .nav-pill,
+  .site-nav > .hire-button {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-menu-toggle:checked + .mobile-menu-button {
+    color: #187dff;
+  }
+
+  .mobile-menu-panel {
+    grid-column: 1 / -1;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    padding: 10px 20px 18px;
+    border-top: 1px solid rgba(24, 125, 255, 0.18);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.18);
+    background: #020712;
+  }
+
+  .mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    display: flex;
+  }
+
+  .mobile-menu-link,
+  .mobile-menu-hire {
+    display: flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    color: rgba(248, 251, 255, 0.82);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .mobile-menu-link.active {
+    color: #187dff;
+  }
+
+  .mobile-menu-hire {
+    justify-content: center;
+    margin-top: 8px;
+    border-radius: 7px;
+    color: #ffffff;
+    background: #187dff;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+  }
+}
+`;
 
 const highlights = [
   {
+    icon: "01",
     title: "Brand Communication",
     detail: "Campaign planning, client coordination, content direction, and creative execution.",
   },
   {
+    icon: "02",
     title: "Campus Activation",
     detail: "Student outreach, ambassador coordination, event promotion, and community engagement.",
   },
   {
+    icon: "03",
     title: "Sponsorship & Outreach",
     detail: "Proposal preparation, company research, partnership communication, and follow-up systems.",
   },
   {
+    icon: "04",
     title: "AI-Assisted Execution",
     detail: "Using AI tools to speed up content planning, research, scripts, and workflow organization.",
   },
@@ -30,28 +454,57 @@ const highlights = [
 
 const experiences = [
   {
+    badge: "EM",
     role: "Brand & Communication Manager",
     organization: "Executive Media",
     detail: "Campaign planning, client communication, creative coordination, and brand project execution.",
+    date: "February 2025 - Present",
   },
   {
+    badge: "B",
     role: "Founder",
     organization: "Biztigation",
     detail: "Built and led a national business case competition platform under JU Finance and Banking.",
+    date: "May 2024 - Present",
   },
   {
+    badge: "JUCC",
     role: "Corporate Affairs Wing Secretary",
     organization: "JUCC",
     detail: "Worked on sponsorship outreach, event operations, promotional campaigns, and volunteer coordination.",
+    date: "July 2025 - January 2026",
   },
   {
+    badge: "MoFA",
     role: "Volunteer",
     organization: "MoFA",
     detail: "Supported delegate coordination and control-room communication during election operations.",
+    date: "December 2023 - January 2024",
   },
 ];
 
-const projects = ["Biztigation", "Biztigation 2.0 CRM-Style Outreach System", "Prottoy AI", "Sense of Return 2.0"];
+const projects = [
+  {
+    title: "Biztigation",
+    subtitle: "National Business Case Competition",
+    detail: "A student-led initiative promoting business awareness, networking, and practical learning.",
+  },
+  {
+    title: "Biztigation 2.0",
+    subtitle: "CRM-Style Outreach System",
+    detail: "A CRM-style platform to streamline outreach, track partnerships, and manage collaboration efficiently.",
+  },
+  {
+    title: "Prottoy AI",
+    subtitle: "AI Business Assistant",
+    detail: "An AI-powered assistant designed to support students with smart tools, insights, and productivity.",
+  },
+  {
+    title: "Sense of Return 2.0",
+    subtitle: "Finance Fest Magazine",
+    detail: "A campus initiative fostering community connection and meaningful engagement.",
+  },
+];
 
 const numbers = [
   { value: "2+", label: "Prominent Leadership Roles" },
@@ -73,223 +526,186 @@ const skills = [
   "Public Speaking",
 ];
 
-function SectionHeading({ title, copy }: { title: string; copy?: string }) {
-  return (
-    <div className="mx-auto max-w-3xl text-center">
-      <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl">{title}</h2>
-      {copy ? <p className="mt-5 text-base leading-8 text-blue-100/72 md:text-lg">{copy}</p> : null}
-    </div>
-  );
-}
-
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-radial-royal text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-royal-950/75 backdrop-blur-2xl">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8" aria-label="Main navigation">
-          <Link href="/" className="group flex items-center" aria-label="Arpan Samadder Home">
-            <AssetImage
-              src="/images/logo-mark.png"
-              alt="Arpan Samadder logo mark"
-              fallbackLabel="AS"
-              className="h-11 w-11 rounded-2xl border border-cyan-300/25 bg-blue-500/10"
-              fallbackClassName="bg-gradient-to-br from-blue-700 via-blue-500 to-cyan-300"
-            >
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20" />
-            </AssetImage>
+    <main className="home-page">
+      <style>{heroOnlyPolish}</style>
+      <header className="site-header">
+        <nav className="site-nav" aria-label="Main navigation">
+          <Link href="/" className="logo-link" aria-label="Arpan Samadder Home">
+            <img src="/images/logo-mark.png" alt="Arpan Samadder logo mark" className="logo-mark" />
           </Link>
 
-          <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 md:flex">
+          <div className="nav-pill" aria-label="Primary navigation links">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-blue-100/78 transition hover:bg-white/10 hover:text-white"
-              >
+              <Link key={item.href} href={item.href} className={`nav-link ${item.href === "/" ? "active" : ""}`}>
                 {item.label}
               </Link>
             ))}
           </div>
 
-          <Link
-            href="/hire-me"
-            className="rounded-full border border-cyan-300/40 bg-cyan-300/10 px-4 py-2 text-sm font-bold text-cyan-100 shadow-glow transition hover:bg-cyan-300/20"
-          >
-            Hire Me
+          <Link href="/hire-me" className="hire-button">
+            Hire Me <span aria-hidden="true">→</span>
           </Link>
-        </nav>
-        <div className="flex gap-2 overflow-x-auto border-t border-white/10 px-5 py-3 md:hidden">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="shrink-0 rounded-full bg-white/[0.06] px-4 py-2 text-sm text-blue-50/80">
-              {item.label}
+
+          <input type="checkbox" id="mobile-menu-toggle" className="mobile-menu-toggle" aria-label="Toggle mobile navigation" />
+          <label htmlFor="mobile-menu-toggle" className="mobile-menu-button" aria-hidden="true">☰</label>
+          <div className="mobile-menu-panel" aria-label="Mobile navigation links">
+            {navItems.map((item) => (
+              <Link key={`mobile-${item.href}`} href={item.href} className={`mobile-menu-link ${item.href === "/" ? "active" : ""}`}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/hire-me" className="mobile-menu-hire">
+              Hire Me <span aria-hidden="true">→</span>
             </Link>
-          ))}
-        </div>
+          </div>
+        </nav>
       </header>
 
-      <section className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:pb-28 md:pt-24">
-        <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="relative z-10 flex flex-col justify-center">
-          <h1 className="font-display text-5xl font-black leading-[0.96] tracking-tight text-white md:text-7xl lg:text-8xl">
-            I&apos;m <span className="text-cyan-300 drop-shadow-[0_0_24px_rgba(77,232,255,0.45)]">Arpan</span>
-            <br />
-            Samadder
-          </h1>
-          <p className="mt-6 max-w-2xl font-display text-2xl font-semibold text-cyan-100 md:text-3xl">
-            Business Student. Brand Communicator. Campus Leader.
-          </p>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-100/74">
-            I turn ideas into campaigns, events, systems, and student-led platforms by combining communication, leadership, and execution discipline.
-          </p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/files/arpan-samadder-cv.pdf"
-              className="rounded-full bg-white px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-royal-950 transition hover:-translate-y-1 hover:shadow-glow"
-            >
-              Download CV
-            </Link>
-            <Link
-              href="/hire-me"
-              className="rounded-full border border-cyan-300/45 bg-cyan-300/10 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20"
-            >
-              Contact Me
-            </Link>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 text-sm text-blue-100/72 sm:flex-row sm:flex-wrap sm:items-center">
-            <a href="mailto:arpansamadder110@gmail.com" className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 transition hover:border-cyan-200/40 hover:text-cyan-100">
-              Email: arpansamadder110@gmail.com
-            </a>
-            <a href="https://linkedin.com/in/arpansamadder/" className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 transition hover:border-cyan-200/40 hover:text-cyan-100">
-              LinkedIn: linkedin.com/in/arpansamadder/
-            </a>
-          </div>
-        </div>
+      <section className="hero-section">
+        <div className="hero-bg-dots hero-dots-left" />
+        <div className="hero-bg-dots hero-dots-right" />
+        <div className="hero-curve hero-curve-one" />
+        <div className="hero-curve hero-curve-two" />
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <h1 className="hero-title">
+              <span className="hero-title-line hero-title-intro">I&apos;m <strong>Arpan</strong></span>
+              <span className="hero-title-line">Samadder</span>
+            </h1>
+            <p className="hero-role">Business Student.&nbsp;&nbsp;Brand Communicator.&nbsp;&nbsp;Campus Leader.</p>
+            <p className="hero-description">
+              I turn ideas into campaigns, events, systems, and student-led platforms by combining communication, leadership, and execution discipline.
+            </p>
 
-        <div className="relative z-10">
-          <div className="absolute -left-8 top-8 h-28 w-28 rounded-full border border-cyan-200/20" />
-          <div className="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-cyan-300/10 blur-2xl" />
-          <AssetImage
-            src="/images/arpan-hero-speaker.jpg"
-            alt="Arpan Samadder speaking on stage"
-            fallbackLabel="Hero image placeholder"
-            className="min-h-[520px] rounded-[2.5rem] border border-white/15 bg-gradient-to-br from-blue-950 via-blue-800 to-cyan-900 shadow-card"
-            fallbackClassName="bg-[radial-gradient(circle_at_30%_20%,rgba(77,232,255,0.25),transparent_28%),linear-gradient(145deg,#08235a,#050b18)]"
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-royal-950/78 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
-              <p className="text-sm font-bold uppercase tracking-[0.28em] text-cyan-100/80">Available for</p>
-              <p className="mt-2 font-display text-2xl font-bold text-white">Campaigns, events, outreach, and execution roles</p>
+            <div className="hero-actions">
+              <Link href="/files/arpan-samadder-cv.pdf" className="primary-action">
+                Download CV <span aria-hidden="true">↓</span>
+              </Link>
+              <Link href="/hire-me" className="secondary-action">
+                Contact Me <span aria-hidden="true">→</span>
+              </Link>
             </div>
-          </AssetImage>
+
+            <div className="quick-links" aria-label="Quick contact links">
+              <a href="mailto:arpansamadder110@gmail.com"><span aria-hidden="true">✉</span> arpansamadder110@gmail.com</a>
+              <a href="https://linkedin.com/in/arpansamadder/"><span aria-hidden="true">in</span> linkedin.com/in/arpansamadder/</a>
+            </div>
+          </div>
+
+          <div className="hero-visual" aria-label="Arpan Samadder speaking with microphone">
+            <div className="hero-blue-haze" />
+            <div className="hero-ring hero-ring-main" />
+            <div className="hero-ring hero-ring-inner" />
+            <div className="hero-swirl hero-swirl-back" />
+            <img src="/images/arpan-hero-cutout.png" alt="Arpan Samadder speaking with a microphone" className="hero-cutout" />
+            <div className="hero-swirl hero-swirl-front" />
+            <div className="hero-spark spark-one" />
+            <div className="hero-spark spark-two" />
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {highlights.map((item, index) => (
-            <article key={item.title} className="rounded-[2rem] border border-white/10 bg-white/[0.055] p-6 shadow-card backdrop-blur-xl">
-              <span className="text-sm font-black text-cyan-200">0{index + 1}</span>
-              <h3 className="mt-5 font-display text-xl font-bold text-white">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-blue-100/65">{item.detail}</p>
+      <section className="content-panel highlights-panel" aria-labelledby="highlights-title">
+        <div className="section-head row-head">
+          <h2 id="highlights-title">Highlights</h2>
+        </div>
+        <div className="highlight-grid">
+          {highlights.map((item) => (
+            <article className="feature-card" key={item.title}>
+              <div className="icon-circle">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <SectionHeading title="Experience" />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <section className="content-panel" aria-labelledby="experience-title">
+        <div className="section-head row-head">
+          <h2 id="experience-title">Experience</h2>
+          <Link href="/experience">View All Experience <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="experience-grid">
           {experiences.map((item) => (
-            <article key={`${item.role}-${item.organization}`} className="rounded-[2rem] border border-blue-300/15 bg-blue-950/45 p-7 transition hover:-translate-y-2 hover:border-cyan-200/35 hover:bg-blue-900/50">
-              <div className="mb-8 h-1 w-16 rounded-full bg-gradient-to-r from-cyan-300 to-blue-500" />
-              <h3 className="font-display text-2xl font-bold text-white">{item.role}</h3>
-              <p className="mt-2 text-sm font-bold uppercase tracking-[0.2em] text-cyan-200/78">{item.organization}</p>
-              <p className="mt-4 leading-7 text-blue-100/68">{item.detail}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/experience" className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-300/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20">
-            View All Experience
-          </Link>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <SectionHeading title="Projects" />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {projects.map((project) => (
-            <article key={project} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.055] shadow-card backdrop-blur-xl">
-              <div className="flex h-52 items-center justify-center bg-gradient-to-br from-blue-950 via-blue-800/70 to-cyan-900/70">
-                <div className="rounded-3xl border border-cyan-200/25 bg-white/10 px-6 py-5 text-center backdrop-blur-md">
-                  <p className="text-xs font-black uppercase tracking-[0.35em] text-cyan-100/75">Placeholder</p>
-                  <p className="mt-2 font-display text-xl font-bold text-white">Visual pending</p>
+            <article className="experience-card" key={`${item.role}-${item.organization}`}>
+              <div className="experience-top">
+                <div className="experience-badge">{item.badge}</div>
+                <div>
+                  <h3>{item.role}</h3>
+                  <p>{item.organization}</p>
                 </div>
               </div>
-              <div className="p-7">
-                <h3 className="font-display text-2xl font-bold text-white">{project}</h3>
+              <p className="experience-detail">{item.detail}</p>
+              <p className="experience-date">{item.date}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="content-panel" aria-labelledby="projects-title">
+        <div className="section-head row-head">
+          <h2 id="projects-title">Projects</h2>
+          <Link href="/projects">View All Projects <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.title}>
+              <div className="project-visual">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="project-body">
+                <h3>{project.title}</h3>
+                <p className="project-subtitle">{project.subtitle}</p>
+                <p>{project.detail}</p>
               </div>
             </article>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link href="/projects" className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-300/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-cyan-100 transition hover:-translate-y-1 hover:bg-cyan-300/20">
-            View All Projects
-          </Link>
-        </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="grid overflow-hidden rounded-[2.5rem] border border-cyan-200/15 bg-white/[0.055] shadow-card backdrop-blur-xl md:grid-cols-4">
-          {numbers.map((item) => (
-            <div key={item.label} className="border-b border-white/10 p-8 text-center last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
-              <p className="font-display text-4xl font-black text-cyan-100 md:text-5xl">{item.value}</p>
-              <p className="mt-3 text-sm uppercase tracking-[0.22em] text-blue-100/60">{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-        <div className="grid gap-10 rounded-[2.5rem] border border-white/10 bg-blue-950/45 p-7 shadow-card backdrop-blur-xl md:grid-cols-[0.8fr_1.2fr] md:p-10">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.35em] text-cyan-200/80">Core skills</p>
-            <h2 className="mt-4 font-display text-3xl font-bold text-white md:text-5xl">A practical skill set for planning, communication, and execution.</h2>
+      <section className="split-section">
+        <div className="content-panel numbers-panel" aria-labelledby="numbers-title">
+          <div className="section-head">
+            <h2 id="numbers-title">Key Numbers</h2>
           </div>
-          <div className="flex flex-wrap content-start gap-3">
+          <div className="numbers-grid">
+            {numbers.map((item) => (
+              <article className="number-card" key={item.label}>
+                <div className="number-icon" />
+                <h3>{item.value}</h3>
+                <p>{item.label}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div className="content-panel skills-panel" aria-labelledby="skills-title">
+          <div className="section-head row-head">
+            <h2 id="skills-title">Core Skills</h2>
+            <Link href="/profile">View All Skills <span aria-hidden="true">→</span></Link>
+          </div>
+          <div className="skills-list">
             {skills.map((skill) => (
-              <span key={skill} className="rounded-full border border-cyan-200/20 bg-cyan-100/10 px-5 py-3 text-sm font-semibold text-cyan-50">
-                {skill}
-              </span>
+              <span key={skill}>{skill}</span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-24 pt-10 md:px-8" id="contact">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan-200/20 bg-gradient-to-br from-blue-700/70 via-blue-950 to-cyan-950 p-8 text-center shadow-card md:p-14">
-          <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/80 to-transparent" />
-          <AssetImage
-            src="/images/arpan-profile-photo.jpeg"
-            alt="Arpan Samadder profile portrait"
-            fallbackLabel="Profile photo placeholder"
-            className="mx-auto h-28 w-28 rounded-full border border-cyan-100/35 bg-blue-900 shadow-glow"
-            fallbackClassName="bg-gradient-to-br from-cyan-500/40 via-blue-600 to-blue-950"
-          />
-          <h2 className="mx-auto mt-8 max-w-3xl font-display text-3xl font-black tracking-tight text-white md:text-5xl">
-            Need someone who can plan, communicate, organize, and execute?
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50/75">
-            I am open to internships, campus ambassador roles, part-time opportunities, brand communication work, campaign support, and project-based collaboration.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/hire-me" className="rounded-full bg-white px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-royal-950 transition hover:-translate-y-1">
-              Hire Me
-            </Link>
-            <Link href="/hire-me" className="rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-white/15">
-              Contact Me
-            </Link>
-          </div>
+      <section className="final-cta">
+        <div className="cta-glow" />
+        <div className="cta-copy">
+          <p className="cta-label">Open to internships, campus roles, and project work</p>
+          <h2>Need someone who can plan, communicate, organize, and execute?</h2>
+          <p>I am open to internships, campus ambassador roles, brand communication work, campaign support, and project-based collaboration.</p>
+        </div>
+        <div className="cta-actions">
+          <Link href="/hire-me" className="primary-action">Hire Me <span aria-hidden="true">→</span></Link>
+          <Link href="/hire-me" className="secondary-action">Contact Me <span aria-hidden="true">→</span></Link>
         </div>
       </section>
     </main>
