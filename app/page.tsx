@@ -8,12 +8,20 @@ const navItems = [
 ];
 
 const heroOnlyPolish = `
+.home-page {
+  --blue: #187dff;
+  --blue-flat: #187dff;
+  --cyan: #187dff;
+  --font-headline: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
 @media (min-width: 1061px) {
   .site-header {
     height: 74px;
     background: rgba(2, 7, 18, 0.98);
-    border-bottom: 1px solid rgba(56, 223, 255, 0.10);
-    box-shadow: 0 8px 34px rgba(0, 0, 0, 0.20);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.16);
+    box-shadow: none;
   }
 
   .site-nav {
@@ -25,7 +33,7 @@ const heroOnlyPolish = `
   .logo-link {
     width: 54px;
     height: 54px;
-    filter: drop-shadow(0 0 22px rgba(56, 223, 255, 0.55));
+    filter: none;
   }
 
   .logo-mark {
@@ -43,13 +51,20 @@ const heroOnlyPolish = `
   .nav-link {
     padding: 28px 0 24px;
     font-size: 12px;
-    font-weight: 800;
-    color: rgba(248, 251, 255, 0.72);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .nav-link::after {
     bottom: 17px;
     height: 2px;
+    background: #187dff;
+    box-shadow: none;
+  }
+
+  .nav-link.active,
+  .nav-link:hover {
+    color: #187dff;
   }
 
   .nav-link.active::after,
@@ -61,6 +76,10 @@ const heroOnlyPolish = `
     min-width: 134px;
     min-height: 46px;
     border-radius: 7px;
+    border-color: #187dff;
+    background: #187dff;
+    box-shadow: none;
+    color: #ffffff;
     font-size: 13px;
   }
 
@@ -68,19 +87,20 @@ const heroOnlyPolish = `
     height: 508px;
     min-height: 508px;
     background: #020816;
+    border-bottom: 1px solid rgba(24, 125, 255, 0.12);
   }
 
   .hero-section::before {
     background:
-      radial-gradient(circle at 72% 44%, rgba(23, 123, 255, 0.36), transparent 29%),
-      radial-gradient(circle at 63% 43%, rgba(56, 223, 255, 0.12), transparent 24%),
-      linear-gradient(90deg, #020711 0%, #020916 40%, #051d45 67%, #020711 100%);
+      radial-gradient(circle at 73% 48%, rgba(24, 125, 255, 0.16), transparent 30%),
+      linear-gradient(90deg, #020711 0%, #020916 43%, #051a3a 67%, #020711 100%);
   }
 
   .hero-bg-dots {
     width: 210px;
     height: 190px;
-    opacity: 0.50;
+    opacity: 0.30;
+    background-image: radial-gradient(circle, rgba(24, 125, 255, 0.42) 0 1px, transparent 1.8px);
     background-size: 14px 14px;
   }
 
@@ -99,7 +119,8 @@ const heroOnlyPolish = `
     top: 11%;
     width: 56vw;
     height: 24vw;
-    opacity: 0.45;
+    opacity: 0.22;
+    border-color: rgba(24, 125, 255, 0.12);
   }
 
   .hero-curve-two {
@@ -107,7 +128,8 @@ const heroOnlyPolish = `
     top: 38%;
     width: 50vw;
     height: 18vw;
-    opacity: 0.26;
+    opacity: 0.16;
+    border-color: rgba(24, 125, 255, 0.10);
   }
 
   .hero-grid {
@@ -126,29 +148,33 @@ const heroOnlyPolish = `
   }
 
   .hero-title {
+    font-family: var(--font-headline);
     font-size: clamp(54px, 5vw, 62px);
     line-height: 0.98;
     letter-spacing: -0.057em;
-    text-shadow: 0 0 20px rgba(23, 123, 255, 0.10);
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: none;
   }
 
   .hero-title strong {
     color: #187dff;
-    text-shadow: 0 0 26px rgba(23, 123, 255, 0.42);
+    font-weight: 900;
+    text-shadow: none;
   }
 
   .hero-role {
     margin-top: 13px;
-    color: #25d9ff;
+    color: #187dff;
     font-size: 14px;
     line-height: 1.45;
-    font-weight: 750;
+    font-weight: 700;
   }
 
   .hero-description {
     max-width: 420px;
     margin-top: 20px;
-    color: rgba(232, 244, 255, 0.80);
+    color: rgba(255, 255, 255, 0.82);
     font-size: 14px;
     line-height: 1.72;
   }
@@ -164,12 +190,30 @@ const heroOnlyPolish = `
     min-height: 44px;
     border-radius: 6px;
     font-size: 14px;
+    box-shadow: none;
+  }
+
+  .primary-action {
+    color: #ffffff;
+    background: #187dff;
+    border-color: #187dff;
+  }
+
+  .secondary-action {
+    color: #ffffff;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.28);
   }
 
   .quick-links {
     gap: 18px;
     margin-top: 18px;
+    color: rgba(255, 255, 255, 0.70);
     font-size: 12px;
+  }
+
+  .quick-links span {
+    color: #187dff;
   }
 
   .quick-links a:first-child::after {
@@ -177,7 +221,7 @@ const heroOnlyPolish = `
     width: 1px;
     height: 14px;
     margin-left: 18px;
-    background: rgba(248, 251, 255, 0.32);
+    background: rgba(255, 255, 255, 0.30);
   }
 
   .hero-visual {
@@ -192,8 +236,8 @@ const heroOnlyPolish = `
     width: 420px;
     height: 420px;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(56, 223, 255, 0.30) 0%, rgba(23, 123, 255, 0.24) 36%, rgba(23, 123, 255, 0.08) 62%, transparent 78%);
-    filter: blur(7px);
+    background: radial-gradient(circle, rgba(24, 125, 255, 0.14) 0%, rgba(24, 125, 255, 0.08) 42%, transparent 76%);
+    filter: none;
   }
 
   .hero-ring-main {
@@ -202,8 +246,8 @@ const heroOnlyPolish = `
     width: 410px;
     height: 410px;
     transform: translate(-50%, -50%);
-    border: 3px solid rgba(23, 123, 255, 0.98);
-    box-shadow: 0 0 20px rgba(23, 123, 255, 0.82), 0 0 62px rgba(23, 123, 255, 0.24), inset 0 0 46px rgba(23, 123, 255, 0.18);
+    border: 3px solid rgba(24, 125, 255, 0.88);
+    box-shadow: none;
   }
 
   .hero-ring-inner {
@@ -212,7 +256,7 @@ const heroOnlyPolish = `
     width: 320px;
     height: 320px;
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(56, 223, 255, 0.23);
+    border: 1px solid rgba(24, 125, 255, 0.22);
   }
 
   .hero-cutout {
@@ -222,7 +266,7 @@ const heroOnlyPolish = `
     width: 452px;
     max-height: none;
     transform: translateX(-50%);
-    filter: drop-shadow(0 30px 42px rgba(0, 0, 0, 0.42)) drop-shadow(0 0 20px rgba(23, 123, 255, 0.16));
+    filter: drop-shadow(0 30px 42px rgba(0, 0, 0, 0.40));
   }
 
   .hero-swirl-back {
@@ -231,9 +275,9 @@ const heroOnlyPolish = `
     width: 780px;
     height: 238px;
     transform: rotate(-16deg);
-    border-top: 2px solid rgba(56, 223, 255, 0.18);
-    border-bottom: 1px solid rgba(23, 123, 255, 0.18);
-    box-shadow: 0 -1px 30px rgba(23, 123, 255, 0.18);
+    border-top: 1px solid rgba(24, 125, 255, 0.14);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.10);
+    box-shadow: none;
   }
 
   .hero-swirl-front {
@@ -243,21 +287,15 @@ const heroOnlyPolish = `
     height: 160px;
     transform: rotate(-13deg);
     background: transparent;
-    border-top: 5px solid rgba(23, 123, 255, 0.72);
-    border-bottom: 2px solid rgba(56, 223, 255, 0.45);
+    border-top: 4px solid rgba(24, 125, 255, 0.58);
+    border-bottom: 1px solid rgba(24, 125, 255, 0.24);
     border-radius: 50%;
-    box-shadow: 0 -6px 28px rgba(23, 123, 255, 0.50), 0 5px 28px rgba(56, 223, 255, 0.26);
-    filter: drop-shadow(0 0 20px rgba(56, 223, 255, 0.46));
+    box-shadow: none;
+    filter: none;
   }
 
-  .spark-one {
-    right: 24%;
-    top: 24%;
-  }
-
-  .spark-two {
-    right: 10%;
-    bottom: 25%;
+  .hero-spark {
+    display: none;
   }
 
   .highlights-panel {
