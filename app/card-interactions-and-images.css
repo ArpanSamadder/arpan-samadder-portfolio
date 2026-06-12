@@ -39,12 +39,14 @@
     url("/images/sense-of-return-2.png") !important;
 }
 
-.home-page .experience-card {
-  padding-bottom: 54px !important;
-}
+@media (min-width: 721px) {
+  .home-page .experience-card {
+    padding-bottom: 54px !important;
+  }
 
-.home-page .project-body {
-  padding-bottom: 56px !important;
+  .home-page .project-body {
+    padding-bottom: 56px !important;
+  }
 }
 
 .home-page .card-detail-link {
@@ -94,6 +96,15 @@
       box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1) !important;
   }
 
+  .home-page .experience-card:not(.is-expanded):not(:hover):not(:focus-within) {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 82px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
   .home-page .experience-card.is-expanded,
   .home-page .experience-card:hover,
   .home-page .experience-card:focus-within,
@@ -106,6 +117,14 @@
     border-color: rgba(24, 125, 255, 0.50) !important;
     background: rgba(24, 125, 255, 0.050) !important;
     box-shadow: inset 0 0 18px rgba(24, 125, 255, 0.045) !important;
+  }
+
+  .home-page .experience-card.is-expanded,
+  .home-page .experience-card:hover,
+  .home-page .experience-card:focus-within {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
   }
 
   .home-page .experience-card.is-expanded .experience-detail,
