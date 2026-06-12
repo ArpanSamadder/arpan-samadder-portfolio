@@ -128,13 +128,14 @@ export default function Home() {
       </header>
 
       <section className="hero-section">
-        <div className="hero-bg-dots" />
+        <div className="hero-bg-dots hero-dots-left" />
+        <div className="hero-bg-dots hero-dots-right" />
         <div className="hero-curve hero-curve-one" />
         <div className="hero-curve hero-curve-two" />
         <div className="hero-grid">
           <div className="hero-copy">
             <h1 className="hero-title">
-              <span className="hero-title-line">I&apos;m <strong>Arpan</strong></span>
+              <span className="hero-title-line hero-title-intro">I&apos;m <strong>Arpan</strong></span>
               <span className="hero-title-line">Samadder</span>
             </h1>
             <p className="hero-role">Business Student. Brand Communicator. Campus Leader.</p>
@@ -153,7 +154,7 @@ export default function Home() {
 
             <div className="quick-links" aria-label="Quick contact links">
               <a href="mailto:arpansamadder110@gmail.com"><span aria-hidden="true">✉</span> arpansamadder110@gmail.com</a>
-              <a href="https://linkedin.com/in/arpansamadder/"><span aria-hidden="true">in</span> linkedin.com/in/arpansamadder</a>
+              <a href="https://linkedin.com/in/arpansamadder/"><span aria-hidden="true">in</span> linkedin.com/in/arpansamadder/</a>
             </div>
           </div>
 
@@ -161,9 +162,7 @@ export default function Home() {
             <div className="hero-blue-haze" />
             <div className="hero-ring hero-ring-main" />
             <div className="hero-ring hero-ring-inner" />
-            <div className="hero-ring hero-ring-outer" />
             <div className="hero-swirl hero-swirl-back" />
-            <div className="hero-swirl hero-swirl-mid" />
             <img src="/images/arpan-hero-cutout.png" alt="Arpan Samadder speaking with a microphone" className="hero-cutout" />
             <div className="hero-swirl hero-swirl-front" />
             <div className="hero-spark spark-one" />
