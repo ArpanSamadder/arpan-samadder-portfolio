@@ -13,7 +13,7 @@ import CardInteractions from "./CardInteractions";
 
 export const metadata: Metadata = {
   title: "Arpan Samadder | Portfolio",
-  description: "Personal portfolio of Arpan Samadder, focused on brand communication, campus leadership, marketing, and execution.",
+  description: "Personal portfolio of Arpan Samadder, focused on brand communication, campus leadership, marketing, and project delivery.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
