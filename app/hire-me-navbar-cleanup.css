@@ -1,0 +1,6 @@
+/* Hide the duplicate right-side Hire Me CTA only on the Hire Me page.
+   The main Hire Me nav link stays active in the center navigation. */
+.hire-page .site-nav > .hire-button {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
