@@ -1,3 +1,11 @@
+.hire-page .site-nav > a.hire-button,
+main.hire-page .site-header .site-nav > .hire-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .hire-page .hire-kicker {
   display: none !important;
 }
