@@ -19,13 +19,27 @@ body:has(.hire-page) .site-nav > .hire-button {
 }
 
 @media (max-width: 980px) {
+  /* Hide ONLY the top/header Hire Me CTA on mobile Hire Me page. */
   .hire-page .site-header .site-nav > a.hire-button,
+  .hire-page .site-header .site-nav > .hire-button,
+  .hire-page .site-nav > a.hire-button,
   .hire-page .site-nav > .hire-button,
+  .hire-page .site-nav > a[href^="mailto"].hire-button,
+  body:has(main.hire-page) .site-header .site-nav > a.hire-button,
+  body:has(main.hire-page) .site-header .site-nav > a[href^="mailto"],
   body:has(.hire-page) .site-nav > .hire-button {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
   }
 
   .hire-page .mobile-menu-panel {
