@@ -1,10 +1,26 @@
-/* Hide the duplicate right-side Hire Me CTA only on the Hire Me page.
-   The main Hire Me nav link stays active in the center navigation. */
-.hire-page .site-header .site-nav > a.hire-button,
-.hire-page .site-nav > .hire-button,
-body:has(.hire-page) .site-nav > .hire-button {
+/* Hire Me page navbar cleanup.
+   Keep the navbar consistent with other pages: desktop text links stop at Projects,
+   and the right-side blue Hire Me CTA remains visible. */
+.hire-page .nav-pill .nav-link[href="/hire-me"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+.hire-page .site-header .site-nav > a.hire-button,
+.hire-page .site-nav > .hire-button,
+body:has(.hire-page) .site-nav > .hire-button {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 760px) {
+  .hire-page .site-header .site-nav > a.hire-button,
+  .hire-page .site-nav > .hire-button,
+  body:has(.hire-page) .site-nav > .hire-button {
+    display: none !important;
+  }
 }
