@@ -41,23 +41,35 @@ main.hire-page .site-header .site-nav > .hire-button {
 
 .hire-page .role-list {
   align-items: stretch !important;
+  justify-items: stretch !important;
 }
 
 .hire-page .role-item {
-  justify-content: flex-start !important;
+  display: grid !important;
+  grid-template-columns: 24px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  justify-items: start !important;
+  justify-content: stretch !important;
+  column-gap: 14px !important;
   text-align: left !important;
-  gap: 12px !important;
   padding: 0 18px !important;
   min-height: 52px !important;
 }
 
-.hire-page .role-item .inline-icon {
+.hire-page .role-item > .inline-icon {
+  grid-column: 1 !important;
+  justify-self: start !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   color: var(--blue) !important;
 }
 
-.hire-page .role-item span[aria-hidden="true"] {
-  margin-left: auto !important;
+.hire-page .role-item > span[aria-hidden="true"]:not(.inline-icon) {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  margin-left: 0 !important;
   flex: 0 0 auto !important;
+  color: var(--blue) !important;
 }
 
 .hire-page .connect-actions {
@@ -77,7 +89,9 @@ main.hire-page .site-header .site-nav > .hire-button {
   .hire-page .role-item {
     min-height: 40px !important;
     padding: 0 12px !important;
-    justify-content: flex-start !important;
+    grid-template-columns: 20px minmax(0, 1fr) auto !important;
+    column-gap: 10px !important;
+    justify-items: start !important;
     text-align: left !important;
   }
 
@@ -86,6 +100,10 @@ main.hire-page .site-header .site-nav > .hire-button {
     width: 18px !important;
     height: 18px !important;
     flex-basis: 18px !important;
+  }
+
+  .hire-page .role-item > .inline-icon {
+    margin-left: 0 !important;
   }
 
   .hire-page .connect-actions .hire-action {
