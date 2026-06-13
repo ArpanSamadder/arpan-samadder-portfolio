@@ -1,9 +1,10 @@
-.hire-page .site-nav > a.hire-button,
+.hire-page .site-header .site-nav > a.hire-button,
+.hire-page .site-nav > .hire-button,
 main.hire-page .site-header .site-nav > .hire-button {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .hire-page .hire-kicker {
