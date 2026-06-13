@@ -1,6 +1,7 @@
 /* Hire Me page navbar cleanup.
-   Keep the navbar consistent with other pages: desktop text links stop at Projects,
-   and the right-side blue Hire Me CTA remains visible. */
+   Match the other pages:
+   - Desktop: center links stop at Projects, blue Hire Me CTA stays on the right.
+   - Mobile: no extra header Hire Me button, hamburger menu matches the normal mobile menu and contains a Hire Me CTA. */
 .hire-page .nav-pill .nav-link[href="/hire-me"] {
   display: none !important;
   visibility: hidden !important;
@@ -17,10 +18,77 @@ body:has(.hire-page) .site-nav > .hire-button {
   pointer-events: auto !important;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 980px) {
   .hire-page .site-header .site-nav > a.hire-button,
   .hire-page .site-nav > .hire-button,
   body:has(.hire-page) .site-nav > .hire-button {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hire-page .mobile-menu-panel {
+    left: 16px !important;
+    right: 16px !important;
+    top: 64px !important;
+    padding: 20px 18px 18px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: rgba(2, 8, 20, 0.98) !important;
+    box-shadow: none !important;
+  }
+
+  .hire-page .mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+  }
+
+  .hire-page .mobile-menu-link {
+    min-height: auto !important;
+    padding: 0 4px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    justify-content: flex-start !important;
+  }
+
+  .hire-page .mobile-menu-link.active {
+    color: var(--blue) !important;
+  }
+
+  .hire-page .mobile-menu-link[href="/hire-me"] {
+    display: none !important;
+  }
+
+  .hire-page .mobile-menu-hire {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 40px !important;
+    margin-top: -2px !important;
+    padding: 0 16px !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    background: var(--blue) !important;
+    font-size: 0 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 12px 28px rgba(24, 125, 255, 0.20) !important;
+  }
+
+  .hire-page .mobile-menu-hire::before {
+    content: "Hire Me";
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+
+  .hire-page .mobile-menu-hire span {
+    margin-left: 10px !important;
+    font-size: 14px !important;
   }
 }
